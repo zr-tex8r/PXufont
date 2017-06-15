@@ -2,7 +2,7 @@ use v5.12;
 use ZRTeXtor ':all';
 use ZRJCode ':all';
 use Encode qw(encode decode);
-my $prog_name = 'gen-bxunionly';
+my $prog_name = 'generate';
 my $version = '0.2';
 my $mod_date = '2017/07/01';
 use Data::Dump 'dump';
@@ -10,7 +10,8 @@ require "cid2uni.pl";
 our (@cid2uni);
 
 my $prefix = "zu-";
-my $out_dir = "./out";
+my $tfm_dir = "../tfm";
+my $vf_dir = "../vf";
 
 my @otf_vfname = qw(
 brsgexpXXYY-D
@@ -42,18 +43,11 @@ mgoth/mg/r/r
 
 my @dir = qw( h v );
 
-#@otf_vfname = @otf_vfname[11, 6];
-@otf_shape = @otf_shape[1];
-@dir = @dir[0];
-$prefix = "";
-
-my %toucs;
-
 sub main {
   local ($_);
   if (defined textool_error()) { error(); }
-  mkdir($out_dir);
-  (-d $out_dir) or error("cannot make", $out_dir);
+  mkdir($vf_dir);
+  (-d $vf_dir) or error("cannot make", $vf_dir);
   jcode_set('none', 'none') or error();
   pl_prefer_hex(1);
   # prepare
@@ -78,6 +72,8 @@ sub otf_font_name {
   return $_;
 }
 
+my (%toucs);
+
 sub make_toucs {
   info("make_toucs");
   my %jismap = map {
@@ -96,7 +92,7 @@ sub process_shape_std {
   info("process", $vfn);
   $_ = read_whole_file(kpse("$vfn.vf"), 1) or error();
   $_ = convert_vf($_, [$jtfm], [], [$utfm, $utfm]);
-  write_whole_file("$out_dir/$prefix$vfn.vf", $_, 1) or error();
+  finish($vfn, $_);
 }
 
 sub process_shape_otf {
@@ -108,7 +104,7 @@ sub process_shape_otf {
     [ map { otf_font_name($_, $shp, $dir) } ("hXXYY-D", "hXXYYn-D") ],
     [ map { otf_font_name($_, $shp, $dir) } ("otf-cjXY-D") ],
     [ map { otf_font_name($_, $shp, $dir) } ("otf-ujXY-D", "otf-ujXYn-D") ]);
-  write_whole_file("$out_dir/$prefix$vfn.vf", $_, 1) or error();
+  finish($vfn, $_);
 }
 
 sub convert_vf {
@@ -134,7 +130,7 @@ sub convert_vf {
       push(@zmap, @z); $mfadj{$mfid} = [$mftyp{$nam}, @i];
     } else {
       my $z = pl_clone($_); pl_set_value($z, 1, $zmfid);
-      $_->[3][1] = $prefix . $nam;
+      $z->[3][1] = $prefix . $nam;
       $mfadj{$mfid} = $zmfid; $zmfid += 1;
       push(@zmap, $z);
     }
@@ -176,38 +172,13 @@ sub convert_vf {
   return vf_form($zvf);
 }
 
-=nop
-
-sub main_vf2zvp0 {
-  my ($t);
-  read_option();
-  $t = read_whole_file(kpse($infile), 1) or error();
-  $t = vf_parse($t) or error();
-  $t = pl_form($t) or error();
-  write_whole_file($outfile, $t) or error();
+sub finish {
+  my ($vfn, $vf) = @_;
+  my $ovfn = $prefix . $vfn;
+  my $tfm = read_whole_file(kpse("$vfn.tfm"), 1) or error();
+  write_whole_file("$tfm_dir/$ovfn.tfm", $tfm, 1) or error();
+  write_whole_file("$vf_dir/$ovfn.vf", $vf, 1) or error();
 }
-
-sub main_zvp02vf {
-  my ($t);
-  read_option();
-  $t = read_whole_file(kpse($infile)) or error();
-  $t = pl_parse($t) or error();
-  $t = vf_form($t) or error();
-  write_whole_file($outfile, $t, 1) or error();
-}
-
-sub main_zvp2vf {
-  my ($t, $u);
-  read_option();
-  if ($sw_uptool) { jfm_use_uptex_tool(1); }
-  $t = read_whole_file(kpse($infile)) or error();
-  $t = pl_parse($t) or error();
-  ($t, $u) = vf_form_ex($t) or error();
-  write_whole_file($outfile, $t, 1) or error();
-  write_whole_file($out2file, $u, 1) or error();
-}
-
-=cut
 
 sub info {
   print STDERR (join(": ", $prog_name, @_), "\n");
