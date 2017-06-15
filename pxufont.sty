@@ -10,7 +10,7 @@
 
 %% package declaration
 \NeedsTeXFormat{pLaTeX2e}
-\ProvidesPackage{pxufont}[2017/07/01 v0.2]
+\ProvidesPackage{pxufont}[2017/07/01 v0.2-pre]
 \def\pxuf@pkgname{pxufont}
 %
 \providecommand\bxDebug[1]{}
@@ -21,13 +21,13 @@
 \RequirePackage{ifuptex}
 
 %% unique tokens
-\def\xx@end{\xx@end@}
-\def\xx@mt{\xx@mt@}
+\def\pxuf@end{\pxuf@end@}
+\def\pxuf@mt{\pxuf@mt@}
 
-%% swutch 'xx@otf@used'
-\newif\ifxx@otf@used
+%% swutch 'pxuf@otf@used'
+\newif\ifpxuf@otf@used
 \@ifpackageloaded{otf}{%
-  \xx@otf@usedtrue
+  \pxuf@otf@usedtrue
 }{%else
   \AtBeginDocument{%
     \@ifpackageloaded{otf}{%
@@ -36,87 +36,87 @@
     }{}}%
 }
 
-%% \xx@JY/\xx@JT
+%% \pxuf@JY/\pxuf@JT
 \ifNativeupTeX
-\def\xx@JY{JY2}\def\xx@JT{JT2}
+\def\pxuf@JY{JY2}\def\pxuf@JT{JT2}
 \else
-\def\xx@JY{JY1}\def\xx@JT{JT1}
+\def\pxuf@JY{JY1}\def\pxuf@JT{JT1}
 \fi
 
 %--------------------------------------- general
 \begingroup
 
 %% variables
-% \xx@scale
-% \xx@tfm
+% \pxuf@scale
+% \pxuf@tfm
 
-%% \xx@reset@size
-\def\xx@reset@size{10}
+%% \pxuf@reset@size
+\def\pxuf@reset@size{10}
 \ifdim\f@size\p@=10\p@\else
-  \edef\xx@reset@size{\xx@reset@size,\f@size}
+  \edef\pxuf@reset@size{\pxuf@reset@size,\f@size}
 \fi
 \ifx\jsc@JYn\@undefined\else %jsclasses
   \begingroup
     \footnotesize \xdef\@gtempa{\f@size}
   \endgroup
-  \edef\xx@reset@size{\xx@reset@size,\@gtempa}
+  \edef\pxuf@reset@size{\pxuf@reset@size,\@gtempa}
 \fi
-\bxDebug{ufont:reset@size=\xx@reset@size}
+\bxDebug{ufont:reset@size=\pxuf@reset@size}
 
-%% \xx@parse@spec{E/F/S/S}
-% Sets \xx@scale and \xx@tfm.
-\edef\xx@tmpb{%
+%% \pxuf@parse@spec{E/F/S/S}
+% Sets \pxuf@scale and \pxuf@tfm.
+\edef\pxuf@tmpb{%
   {\expandafter\string\csname<->s\endcsname*[}{]}{$}}
-\def\xx@tmpa#1#2#3{%
-  \def\xx@parse@spec##1{%
-    \let\xx@scale\relax\let\xx@tfm\relax
-    \expandafter\expandafter\expandafter\xx@parse@spec@a
+\def\pxuf@tmpa#1#2#3{%
+  \def\pxuf@parse@spec##1{%
+    \let\pxuf@scale\relax\let\pxuf@tfm\relax
+    \expandafter\expandafter\expandafter\pxuf@parse@spec@a
         \csname##1\endcsname}%
-  \def\xx@parse@spec@a##1{%
-    \expandafter\xx@parse@spec@b\string##1#3#1#2#3\xx@end}
-  \def\xx@parse@spec@b##1#1##2#2##3#3##4\xx@end{%
-    \ifx\xx@mt##4\xx@mt\else
-      \def\xx@scale{##2}\def\xx@tfm{##3}%
+  \def\pxuf@parse@spec@a##1{%
+    \expandafter\pxuf@parse@spec@b\string##1#3#1#2#3\pxuf@end}
+  \def\pxuf@parse@spec@b##1#1##2#2##3#3##4\pxuf@end{%
+    \ifx\pxuf@mt##4\pxuf@mt\else
+      \def\pxuf@scale{##2}\def\pxuf@tfm{##3}%
    \fi}%
-}\expandafter\xx@tmpa\xx@tmpb
+}\expandafter\pxuf@tmpa\pxuf@tmpb
 
-%% \xx@process@one
-\def\xx@process@one#1#2#3#4#5{%
+%% \pxuf@process@one
+\def\pxuf@process@one#1#2#3#4#5{%
 \bxDebug{ufont:process(#1;#2/#3/#4/#5)}%
-  \xx@parse@spec{#2/#3/#4/#5}%
-  \ifx\xx@tfm\relax\else
-\bxDebug{spec=\xx@scale:\xx@tfm}%
-    \DeclareFontShape{#2}{#3}{#4}{#5}{<->s*[\xx@scale]zu-\xx@tfm}{}%
+  \pxuf@parse@spec{#2/#3/#4/#5}%
+  \ifx\pxuf@tfm\relax\else
+\bxDebug{spec=\pxuf@scale:\pxuf@tfm}%
+    \DeclareFontShape{#2}{#3}{#4}{#5}{<->s*[\pxuf@scale]zu-\pxuf@tfm}{}%
     \if t#1%
-      \@for\xx@tmpa:=\xx@reset@size\do{%
-        \global\expandafter\let\csname#2/#3/#4/#5/\xx@tmpa
+      \@for\pxuf@tmpa:=\pxuf@reset@size\do{%
+        \global\expandafter\let\csname#2/#3/#4/#5/\pxuf@tmpa
             \endcsname\relax}%
     \fi
   \fi}
 
 %% process
-\ifxx@otf@used
-  \@for\xx@w:={\xx@JY,\xx@JT}\do{%
-    \@for\xx@x:={hmc,hgt,mg,ruby,rubyg,rubymg}\do{%
-      \@for\xx@y:={l,m,bx,eb}\do{%
-        \expandafter\ifx\csname\xx@w/\xx@x/\xx@y/n\endcsname\relax\else
-          \expandafter\let\csname xx@DF/\xx@x\endcsname=t%
-          \xx@process@one{t}\xx@w\xx@x\xx@y{n}%
+\ifpxuf@otf@used
+  \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
+    \@for\pxuf@x:={hmc,hgt,mg,ruby,rubyg,rubymg}\do{%
+      \@for\pxuf@y:={l,m,bx,eb}\do{%
+        \expandafter\ifx\csname\pxuf@w/\pxuf@x/\pxuf@y/n\endcsname\relax\else
+          \expandafter\let\csname pxuf@DF/\pxuf@x\endcsname=t%
+          \pxuf@process@one{t}\pxuf@w\pxuf@x\pxuf@y{n}%
         \fi}}}
-  \@for\xx@w:={\xx@JY,\xx@JT}\do{%
-    \@for\xx@x:={cidj,cidjg,cidjmg}\do{%
-      \@for\xx@y:={l,m,bx,eb}\do{%
-        \expandafter\ifx\csname\xx@w/\xx@x/\xx@y/0\endcsname\relax\else
-          \@tfor\xx@z:=012345\do{%
-            \xx@process@one{f}\xx@w\xx@x\xx@y\xx@z}%
+  \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
+    \@for\pxuf@x:={cidj,cidjg,cidjmg}\do{%
+      \@for\pxuf@y:={l,m,bx,eb}\do{%
+        \expandafter\ifx\csname\pxuf@w/\pxuf@x/\pxuf@y/0\endcsname\relax\else
+          \@tfor\pxuf@z:=012345\do{%
+            \pxuf@process@one{f}\pxuf@w\pxuf@x\pxuf@y\pxuf@z}%
         \fi}}}
 \fi
-\@for\xx@w:={\xx@JY,\xx@JT}\do{%
-  \@for\xx@x:={\mcdefault,\gtdefault,mc,gt}\do{%
-    \expandafter\ifx\csname xx@DF/\xx@x\endcsname\relax
-      \expandafter\ifx\csname\xx@w/\xx@x/m/n\endcsname\relax\else
-        \expandafter\let\csname xx@DF/\xx@x\endcsname=t%
-        \xx@process@one{t}\xx@w\xx@x{m}{n}%
+\@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
+  \@for\pxuf@x:={\mcdefault,\gtdefault,mc,gt}\do{%
+    \expandafter\ifx\csname pxuf@DF/\pxuf@x\endcsname\relax
+      \expandafter\ifx\csname\pxuf@w/\pxuf@x/m/n\endcsname\relax\else
+        \expandafter\let\csname pxuf@DF/\pxuf@x\endcsname=t%
+        \pxuf@process@one{t}\pxuf@w\pxuf@x{m}{n}%
       \fi
     \fi}}
 
