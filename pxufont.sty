@@ -10,7 +10,7 @@
 
 %% package declaration
 \NeedsTeXFormat{pLaTeX2e}
-\ProvidesPackage{pxufont}[2017/07/01 v0.2-pre]
+\ProvidesPackage{pxufont}[2017/06/28 v0.2]
 \def\pxuf@pkgname{pxufont}
 %
 \providecommand\bxDebug[1]{}
@@ -95,7 +95,7 @@
   \fi}
 
 %% process
-\ifpxuf@otf@used
+\ifpxuf@otf@used\ifNativeupTeX\else
   \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
     \@for\pxuf@x:={hmc,hgt,mg,ruby,rubyg,rubymg}\do{%
       \@for\pxuf@y:={l,m,bx,eb}\do{%
@@ -103,6 +103,8 @@
           \expandafter\let\csname pxuf@DF/\pxuf@x\endcsname=t%
           \pxuf@process@one{t}\pxuf@w\pxuf@x\pxuf@y{n}%
         \fi}}}
+\fi\fi
+\ifpxuf@otf@used
   \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
     \@for\pxuf@x:={cidj,cidjg,cidjmg}\do{%
       \@for\pxuf@y:={l,m,bx,eb}\do{%
@@ -111,14 +113,16 @@
             \pxuf@process@one{f}\pxuf@w\pxuf@x\pxuf@y\pxuf@z}%
         \fi}}}
 \fi
-\@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
-  \@for\pxuf@x:={\mcdefault,\gtdefault,mc,gt}\do{%
-    \expandafter\ifx\csname pxuf@DF/\pxuf@x\endcsname\relax
-      \expandafter\ifx\csname\pxuf@w/\pxuf@x/m/n\endcsname\relax\else
-        \expandafter\let\csname pxuf@DF/\pxuf@x\endcsname=t%
-        \pxuf@process@one{t}\pxuf@w\pxuf@x{m}{n}%
-      \fi
-    \fi}}
+\ifNativeupTeX\else
+  \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
+    \@for\pxuf@x:={\mcdefault,\gtdefault,mc,gt}\do{%
+      \expandafter\ifx\csname pxuf@DF/\pxuf@x\endcsname\relax
+        \expandafter\ifx\csname\pxuf@w/\pxuf@x/m/n\endcsname\relax\else
+          \expandafter\let\csname pxuf@DF/\pxuf@x\endcsname=t%
+          \pxuf@process@one{t}\pxuf@w\pxuf@x{m}{n}%
+        \fi
+      \fi}}
+\fi
 
 \endgroup
 %--------------------------------------- all done
