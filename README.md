@@ -58,6 +58,8 @@ done through the package option.
 Revision History
 ----------------
 
+  * Version 0.3  〈2017/07/07〉
+      - Emulate also some Unicode fonts which VFs map to non-Unicode fonts.
   * Version 0.2  〈2017/06/28〉
       - The first public version.
 
