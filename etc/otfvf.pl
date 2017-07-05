@@ -994,7 +994,463 @@
   'utftmre-h',
   'utftmre-v',
   'utftmrf-h',
-  'utftmrf-v'
+  'utftmrf-v',
+  'upbrsgexpgothb-h',
+  'upbrsgexpgothb-v',
+  'upbrsgexpgothbn-h',
+  'upbrsgexpgothbn-v',
+  'upbrsgexpgotheb-h',
+  'upbrsgexpgotheb-v',
+  'upbrsgexpgothebn-h',
+  'upbrsgexpgothebn-v',
+  'upbrsgexpgothr-h',
+  'upbrsgexpgothr-v',
+  'upbrsgexpgothrn-h',
+  'upbrsgexpgothrn-v',
+  'upbrsgexpmgothr-h',
+  'upbrsgexpmgothr-v',
+  'upbrsgexpmgothrn-h',
+  'upbrsgexpmgothrn-v',
+  'upbrsgexpminb-h',
+  'upbrsgexpminb-v',
+  'upbrsgexpminbn-h',
+  'upbrsgexpminbn-v',
+  'upbrsgexpminl-h',
+  'upbrsgexpminl-v',
+  'upbrsgexpminln-h',
+  'upbrsgexpminln-v',
+  'upbrsgexpminr-h',
+  'upbrsgexpminr-v',
+  'upbrsgexpminrn-h',
+  'upbrsgexpminrn-v',
+  'upbrsgnmlgothb-h',
+  'upbrsgnmlgothb-v',
+  'upbrsgnmlgothbn-h',
+  'upbrsgnmlgothbn-v',
+  'upbrsgnmlgotheb-h',
+  'upbrsgnmlgotheb-v',
+  'upbrsgnmlgothebn-h',
+  'upbrsgnmlgothebn-v',
+  'upbrsgnmlgothr-h',
+  'upbrsgnmlgothr-v',
+  'upbrsgnmlgothrn-h',
+  'upbrsgnmlgothrn-v',
+  'upbrsgnmlmgothr-h',
+  'upbrsgnmlmgothr-v',
+  'upbrsgnmlmgothrn-h',
+  'upbrsgnmlmgothrn-v',
+  'upbrsgnmlminb-h',
+  'upbrsgnmlminb-v',
+  'upbrsgnmlminbn-h',
+  'upbrsgnmlminbn-v',
+  'upbrsgnmlminl-h',
+  'upbrsgnmlminl-v',
+  'upbrsgnmlminln-h',
+  'upbrsgnmlminln-v',
+  'upbrsgnmlminr-h',
+  'upbrsgnmlminr-v',
+  'upbrsgnmlminrn-h',
+  'upbrsgnmlminrn-v',
+  'upexpgothb-h',
+  'upexpgothb-v',
+  'upexpgothbn-h',
+  'upexpgothbn-v',
+  'upexpgotheb-h',
+  'upexpgotheb-v',
+  'upexpgothebn-h',
+  'upexpgothebn-v',
+  'upexpgothr-h',
+  'upexpgothr-v',
+  'upexpgothrn-h',
+  'upexpgothrn-v',
+  'upexpmgothr-h',
+  'upexpmgothr-v',
+  'upexpmgothrn-h',
+  'upexpmgothrn-v',
+  'upexpminb-h',
+  'upexpminb-v',
+  'upexpminbn-h',
+  'upexpminbn-v',
+  'upexpminl-h',
+  'upexpminl-v',
+  'upexpminln-h',
+  'upexpminln-v',
+  'upexpminr-h',
+  'upexpminr-v',
+  'upexpminrn-h',
+  'upexpminrn-v',
+  'upnmlgothb-h',
+  'upnmlgothb-v',
+  'upnmlgothbn-h',
+  'upnmlgothbn-v',
+  'upnmlgotheb-h',
+  'upnmlgotheb-v',
+  'upnmlgothebn-h',
+  'upnmlgothebn-v',
+  'upnmlgothr-h',
+  'upnmlgothr-v',
+  'upnmlgothrn-h',
+  'upnmlgothrn-v',
+  'upnmlmgothr-h',
+  'upnmlmgothr-v',
+  'upnmlmgothrn-h',
+  'upnmlmgothrn-v',
+  'upnmlminb-h',
+  'upnmlminb-v',
+  'upnmlminbn-h',
+  'upnmlminbn-v',
+  'upnmlminl-h',
+  'upnmlminl-v',
+  'upnmlminln-h',
+  'upnmlminln-v',
+  'upnmlminr-h',
+  'upnmlminr-v',
+  'upnmlminrn-h',
+  'upnmlminrn-v',
+  'upphirakakuw3-h',
+  'upphirakakuw3-v',
+  'upphirakakuw6-h',
+  'upphirakakuw6-v',
+  'upphiramaruw4-h',
+  'upphiramaruw4-v',
+  'upphiraminw3-h',
+  'upphiraminw3-v',
+  'upphiraminw6-h',
+  'upphiraminw6-v',
+  'uprubygothb-h',
+  'uprubygothb-v',
+  'uprubygotheb-h',
+  'uprubygotheb-v',
+  'uprubygothr-h',
+  'uprubygothr-v',
+  'uprubymgothr-h',
+  'uprubymgothr-v',
+  'uprubyminb-h',
+  'uprubyminb-v',
+  'uprubyminl-h',
+  'uprubyminl-v',
+  'uprubyminr-h',
+  'uprubyminr-v',
+  'utfcgrk-h',
+  'utfcgrk-v',
+  'utfcgrl-h',
+  'utfcgrl-v',
+  'utfcgrm-h',
+  'utfcgrm-v',
+  'utfcgro-h',
+  'utfcgro-v',
+  'utfcmrk-h',
+  'utfcmrk-v',
+  'utfcmrl-h',
+  'utfcmrl-v',
+  'utfcmrm-h',
+  'utfcmrm-v',
+  'utfcmro-h',
+  'utfcmro-v',
+  'utfgrj-h',
+  'utfgrj-v',
+  'utfgrk-h',
+  'utfgrk-v',
+  'utfgrl-h',
+  'utfgrl-v',
+  'utfgrm-h',
+  'utfgrm-v',
+  'utfgrn-h',
+  'utfgrn-v',
+  'utfgro-h',
+  'utfgro-v',
+  'utfgrp-h',
+  'utfgrp-v',
+  'utfgrq-h',
+  'utfgrq-v',
+  'utfgrr-h',
+  'utfgrr-v',
+  'utfgrs-h',
+  'utfgrs-v',
+  'utfgrt-h',
+  'utfgrt-v',
+  'utfgru-h',
+  'utfgru-v',
+  'utfgrv-h',
+  'utfgrv-v',
+  'utfgrz-h',
+  'utfgrz-v',
+  'utfjgbj-h',
+  'utfjgbj-v',
+  'utfjgbk-h',
+  'utfjgbk-v',
+  'utfjgbl-h',
+  'utfjgbl-v',
+  'utfjgbm-h',
+  'utfjgbm-v',
+  'utfjgbn-h',
+  'utfjgbn-v',
+  'utfjgbo-h',
+  'utfjgbo-v',
+  'utfjgbp-h',
+  'utfjgbp-v',
+  'utfjgbq-h',
+  'utfjgbq-v',
+  'utfjgbr-h',
+  'utfjgbr-v',
+  'utfjgbs-h',
+  'utfjgbs-v',
+  'utfjgbt-h',
+  'utfjgbt-v',
+  'utfjgbu-h',
+  'utfjgbu-v',
+  'utfjgbv-h',
+  'utfjgbv-v',
+  'utfjgbz-h',
+  'utfjgbz-v',
+  'utfjgej-h',
+  'utfjgej-v',
+  'utfjgek-h',
+  'utfjgek-v',
+  'utfjgel-h',
+  'utfjgel-v',
+  'utfjgem-h',
+  'utfjgem-v',
+  'utfjgen-h',
+  'utfjgen-v',
+  'utfjgeo-h',
+  'utfjgeo-v',
+  'utfjgep-h',
+  'utfjgep-v',
+  'utfjgeq-h',
+  'utfjgeq-v',
+  'utfjger-h',
+  'utfjger-v',
+  'utfjges-h',
+  'utfjges-v',
+  'utfjget-h',
+  'utfjget-v',
+  'utfjgeu-h',
+  'utfjgeu-v',
+  'utfjgev-h',
+  'utfjgev-v',
+  'utfjgez-h',
+  'utfjgez-v',
+  'utfjgrj-h',
+  'utfjgrj-v',
+  'utfjgrk-h',
+  'utfjgrk-v',
+  'utfjgrl-h',
+  'utfjgrl-v',
+  'utfjgrm-h',
+  'utfjgrm-v',
+  'utfjgrn-h',
+  'utfjgrn-v',
+  'utfjgro-h',
+  'utfjgro-v',
+  'utfjgrp-h',
+  'utfjgrp-v',
+  'utfjgrq-h',
+  'utfjgrq-v',
+  'utfjgrr-h',
+  'utfjgrr-v',
+  'utfjgrs-h',
+  'utfjgrs-v',
+  'utfjgrt-h',
+  'utfjgrt-v',
+  'utfjgru-h',
+  'utfjgru-v',
+  'utfjgrv-h',
+  'utfjgrv-v',
+  'utfjgrz-h',
+  'utfjgrz-v',
+  'utfjmbj-h',
+  'utfjmbj-v',
+  'utfjmbk-h',
+  'utfjmbk-v',
+  'utfjmbl-h',
+  'utfjmbl-v',
+  'utfjmbm-h',
+  'utfjmbm-v',
+  'utfjmbn-h',
+  'utfjmbn-v',
+  'utfjmbo-h',
+  'utfjmbo-v',
+  'utfjmbp-h',
+  'utfjmbp-v',
+  'utfjmbq-h',
+  'utfjmbq-v',
+  'utfjmbr-h',
+  'utfjmbr-v',
+  'utfjmbs-h',
+  'utfjmbs-v',
+  'utfjmbt-h',
+  'utfjmbt-v',
+  'utfjmbu-h',
+  'utfjmbu-v',
+  'utfjmbv-h',
+  'utfjmbv-v',
+  'utfjmbz-h',
+  'utfjmbz-v',
+  'utfjmgrj-h',
+  'utfjmgrj-v',
+  'utfjmgrk-h',
+  'utfjmgrk-v',
+  'utfjmgrl-h',
+  'utfjmgrl-v',
+  'utfjmgrm-h',
+  'utfjmgrm-v',
+  'utfjmgrn-h',
+  'utfjmgrn-v',
+  'utfjmgro-h',
+  'utfjmgro-v',
+  'utfjmgrp-h',
+  'utfjmgrp-v',
+  'utfjmgrq-h',
+  'utfjmgrq-v',
+  'utfjmgrr-h',
+  'utfjmgrr-v',
+  'utfjmgrs-h',
+  'utfjmgrs-v',
+  'utfjmgrt-h',
+  'utfjmgrt-v',
+  'utfjmgru-h',
+  'utfjmgru-v',
+  'utfjmgrv-h',
+  'utfjmgrv-v',
+  'utfjmgrz-h',
+  'utfjmgrz-v',
+  'utfjmlj-h',
+  'utfjmlj-v',
+  'utfjmlk-h',
+  'utfjmlk-v',
+  'utfjmll-h',
+  'utfjmll-v',
+  'utfjmlm-h',
+  'utfjmlm-v',
+  'utfjmln-h',
+  'utfjmln-v',
+  'utfjmlo-h',
+  'utfjmlo-v',
+  'utfjmlp-h',
+  'utfjmlp-v',
+  'utfjmlq-h',
+  'utfjmlq-v',
+  'utfjmlr-h',
+  'utfjmlr-v',
+  'utfjmls-h',
+  'utfjmls-v',
+  'utfjmlt-h',
+  'utfjmlt-v',
+  'utfjmlu-h',
+  'utfjmlu-v',
+  'utfjmlv-h',
+  'utfjmlv-v',
+  'utfjmlz-h',
+  'utfjmlz-v',
+  'utfjmrj-h',
+  'utfjmrj-v',
+  'utfjmrk-h',
+  'utfjmrk-v',
+  'utfjmrl-h',
+  'utfjmrl-v',
+  'utfjmrm-h',
+  'utfjmrm-v',
+  'utfjmrn-h',
+  'utfjmrn-v',
+  'utfjmro-h',
+  'utfjmro-v',
+  'utfjmrp-h',
+  'utfjmrp-v',
+  'utfjmrq-h',
+  'utfjmrq-v',
+  'utfjmrr-h',
+  'utfjmrr-v',
+  'utfjmrs-h',
+  'utfjmrs-v',
+  'utfjmrt-h',
+  'utfjmrt-v',
+  'utfjmru-h',
+  'utfjmru-v',
+  'utfjmrv-h',
+  'utfjmrv-v',
+  'utfjmrz-h',
+  'utfjmrz-v',
+  'utfmrj-h',
+  'utfmrj-v',
+  'utfmrk-h',
+  'utfmrk-v',
+  'utfmrl-h',
+  'utfmrl-v',
+  'utfmrm-h',
+  'utfmrm-v',
+  'utfmrn-h',
+  'utfmrn-v',
+  'utfmro-h',
+  'utfmro-v',
+  'utfmrp-h',
+  'utfmrp-v',
+  'utfmrq-h',
+  'utfmrq-v',
+  'utfmrr-h',
+  'utfmrr-v',
+  'utfmrs-h',
+  'utfmrs-v',
+  'utfmrt-h',
+  'utfmrt-v',
+  'utfmru-h',
+  'utfmru-v',
+  'utfmrv-h',
+  'utfmrv-v',
+  'utfmrz-h',
+  'utfmrz-v',
+  'utftgrk-h',
+  'utftgrk-v',
+  'utftgrl-h',
+  'utftgrl-v',
+  'utftgrm-h',
+  'utftgrm-v',
+  'utftgrn-h',
+  'utftgrn-v',
+  'utftgro-h',
+  'utftgro-v',
+  'utftgrp-h',
+  'utftgrp-v',
+  'utftgrq-h',
+  'utftgrq-v',
+  'utftgrr-h',
+  'utftgrr-v',
+  'utftgrs-h',
+  'utftgrs-v',
+  'utftgrt-h',
+  'utftgrt-v',
+  'utftgru-h',
+  'utftgru-v',
+  'utftgrv-h',
+  'utftgrv-v',
+  'utftgrz-h',
+  'utftgrz-v',
+  'utftmrk-h',
+  'utftmrk-v',
+  'utftmrl-h',
+  'utftmrl-v',
+  'utftmrm-h',
+  'utftmrm-v',
+  'utftmrn-h',
+  'utftmrn-v',
+  'utftmro-h',
+  'utftmro-v',
+  'utftmrp-h',
+  'utftmrp-v',
+  'utftmrq-h',
+  'utftmrq-v',
+  'utftmrr-h',
+  'utftmrr-v',
+  'utftmrs-h',
+  'utftmrs-v',
+  'utftmrt-h',
+  'utftmrt-v',
+  'utftmru-h',
+  'utftmru-v',
+  'utftmrv-h',
+  'utftmrv-v',
+  'utftmrz-h',
+  'utftmrz-v'
 );
 %vfinfo = (
   'brsgexpgothb-h' => [
@@ -2331,6 +2787,753 @@
     'cidjmr1-v',
     'cidjmr2-v'
   ],
+  'upbrsgexpgothb-h' => [
+    'uphgothb-h',
+    'cidjgb2-h',
+    'cidjgb3-h',
+    'cidjgb0-h'
+  ],
+  'upbrsgexpgothb-v' => [
+    'uphgothb-v',
+    'cidjgb3-v',
+    'cidjgb4-v',
+    'cidjgb1-v',
+    'cidjgb2-v'
+  ],
+  'upbrsgexpgothbn-h' => [
+    'uphgothbn-h',
+    'cidjgb2-h',
+    'cidjgb3-h',
+    'cidjgb0-h'
+  ],
+  'upbrsgexpgothbn-v' => [
+    'uphgothbn-v',
+    'cidjgb3-v',
+    'cidjgb4-v',
+    'cidjgb1-v',
+    'cidjgb2-v'
+  ],
+  'upbrsgexpgotheb-h' => [
+    'uphgotheb-h',
+    'cidjge2-h',
+    'cidjge3-h',
+    'cidjge0-h'
+  ],
+  'upbrsgexpgotheb-v' => [
+    'uphgotheb-v',
+    'cidjge3-v',
+    'cidjge4-v',
+    'cidjge1-v',
+    'cidjge2-v'
+  ],
+  'upbrsgexpgothebn-h' => [
+    'uphgothebn-h',
+    'cidjge2-h',
+    'cidjge3-h',
+    'cidjge0-h'
+  ],
+  'upbrsgexpgothebn-v' => [
+    'uphgothebn-v',
+    'cidjge3-v',
+    'cidjge4-v',
+    'cidjge1-v',
+    'cidjge2-v'
+  ],
+  'upbrsgexpgothr-h' => [
+    'uphgothr-h',
+    'cidjgr2-h',
+    'cidjgr3-h',
+    'cidjgr0-h'
+  ],
+  'upbrsgexpgothr-v' => [
+    'uphgothr-v',
+    'cidjgr3-v',
+    'cidjgr4-v',
+    'cidjgr1-v',
+    'cidjgr2-v'
+  ],
+  'upbrsgexpgothrn-h' => [
+    'uphgothrn-h',
+    'cidjgr2-h',
+    'cidjgr3-h',
+    'cidjgr0-h'
+  ],
+  'upbrsgexpgothrn-v' => [
+    'uphgothrn-v',
+    'cidjgr3-v',
+    'cidjgr4-v',
+    'cidjgr1-v',
+    'cidjgr2-v'
+  ],
+  'upbrsgexpmgothr-h' => [
+    'uphmgothr-h',
+    'cidjmgr2-h',
+    'cidjmgr3-h',
+    'cidjmgr0-h'
+  ],
+  'upbrsgexpmgothr-v' => [
+    'uphmgothr-v',
+    'cidjmgr3-v',
+    'cidjmgr4-v',
+    'cidjmgr1-v',
+    'cidjmgr2-v'
+  ],
+  'upbrsgexpmgothrn-h' => [
+    'uphmgothrn-h',
+    'cidjmgr2-h',
+    'cidjmgr3-h',
+    'cidjmgr0-h'
+  ],
+  'upbrsgexpmgothrn-v' => [
+    'uphmgothrn-v',
+    'cidjmgr3-v',
+    'cidjmgr4-v',
+    'cidjmgr1-v',
+    'cidjmgr2-v'
+  ],
+  'upbrsgexpminb-h' => [
+    'uphminb-h',
+    'cidjmb2-h',
+    'cidjmb3-h',
+    'cidjmb0-h'
+  ],
+  'upbrsgexpminb-v' => [
+    'uphminb-v',
+    'cidjmb3-v',
+    'cidjmb4-v',
+    'cidjmb1-v',
+    'cidjmb2-v'
+  ],
+  'upbrsgexpminbn-h' => [
+    'uphminbn-h',
+    'cidjmb2-h',
+    'cidjmb3-h',
+    'cidjmb0-h'
+  ],
+  'upbrsgexpminbn-v' => [
+    'uphminbn-v',
+    'cidjmb3-v',
+    'cidjmb4-v',
+    'cidjmb1-v',
+    'cidjmb2-v'
+  ],
+  'upbrsgexpminl-h' => [
+    'uphminl-h',
+    'cidjml2-h',
+    'cidjml3-h',
+    'cidjml0-h'
+  ],
+  'upbrsgexpminl-v' => [
+    'uphminl-v',
+    'cidjml3-v',
+    'cidjml4-v',
+    'cidjml1-v',
+    'cidjml2-v'
+  ],
+  'upbrsgexpminln-h' => [
+    'uphminln-h',
+    'cidjml2-h',
+    'cidjml3-h',
+    'cidjml0-h'
+  ],
+  'upbrsgexpminln-v' => [
+    'uphminln-v',
+    'cidjml3-v',
+    'cidjml4-v',
+    'cidjml1-v',
+    'cidjml2-v'
+  ],
+  'upbrsgexpminr-h' => [
+    'uphminr-h',
+    'cidjmr2-h',
+    'cidjmr3-h',
+    'cidjmr0-h'
+  ],
+  'upbrsgexpminr-v' => [
+    'uphminr-v',
+    'cidjmr3-v',
+    'cidjmr4-v',
+    'cidjmr1-v',
+    'cidjmr2-v'
+  ],
+  'upbrsgexpminrn-h' => [
+    'uphminrn-h',
+    'cidjmr2-h',
+    'cidjmr3-h',
+    'cidjmr0-h'
+  ],
+  'upbrsgexpminrn-v' => [
+    'uphminrn-v',
+    'cidjmr3-v',
+    'cidjmr4-v',
+    'cidjmr1-v',
+    'cidjmr2-v'
+  ],
+  'upbrsgnmlgothb-h' => [
+    'uphgothb-h',
+    'cidjgb0-h'
+  ],
+  'upbrsgnmlgothb-v' => [
+    'uphgothb-v',
+    'cidjgb1-v',
+    'cidjgb2-v'
+  ],
+  'upbrsgnmlgothbn-h' => [
+    'uphgothbn-h',
+    'cidjgb0-h'
+  ],
+  'upbrsgnmlgothbn-v' => [
+    'uphgothbn-v',
+    'cidjgb1-v',
+    'cidjgb2-v'
+  ],
+  'upbrsgnmlgotheb-h' => [
+    'uphgotheb-h',
+    'cidjge0-h'
+  ],
+  'upbrsgnmlgotheb-v' => [
+    'uphgotheb-v',
+    'cidjge1-v',
+    'cidjge2-v'
+  ],
+  'upbrsgnmlgothebn-h' => [
+    'uphgothebn-h',
+    'cidjge0-h'
+  ],
+  'upbrsgnmlgothebn-v' => [
+    'uphgothebn-v',
+    'cidjge1-v',
+    'cidjge2-v'
+  ],
+  'upbrsgnmlgothr-h' => [
+    'uphgothr-h',
+    'cidjgr0-h'
+  ],
+  'upbrsgnmlgothr-v' => [
+    'uphgothr-v',
+    'cidjgr1-v',
+    'cidjgr2-v'
+  ],
+  'upbrsgnmlgothrn-h' => [
+    'uphgothrn-h',
+    'cidjgr0-h'
+  ],
+  'upbrsgnmlgothrn-v' => [
+    'uphgothrn-v',
+    'cidjgr1-v',
+    'cidjgr2-v'
+  ],
+  'upbrsgnmlmgothr-h' => [
+    'uphmgothr-h',
+    'cidjmgr0-h'
+  ],
+  'upbrsgnmlmgothr-v' => [
+    'uphmgothr-v',
+    'cidjmgr1-v',
+    'cidjmgr2-v'
+  ],
+  'upbrsgnmlmgothrn-h' => [
+    'uphmgothrn-h',
+    'cidjmgr0-h'
+  ],
+  'upbrsgnmlmgothrn-v' => [
+    'uphmgothrn-v',
+    'cidjmgr1-v',
+    'cidjmgr2-v'
+  ],
+  'upbrsgnmlminb-h' => [
+    'uphminb-h',
+    'cidjmb0-h'
+  ],
+  'upbrsgnmlminb-v' => [
+    'uphminb-v',
+    'cidjmb1-v',
+    'cidjmb2-v'
+  ],
+  'upbrsgnmlminbn-h' => [
+    'uphminbn-h',
+    'cidjmb0-h'
+  ],
+  'upbrsgnmlminbn-v' => [
+    'uphminbn-v',
+    'cidjmb1-v',
+    'cidjmb2-v'
+  ],
+  'upbrsgnmlminl-h' => [
+    'uphminl-h',
+    'cidjml0-h'
+  ],
+  'upbrsgnmlminl-v' => [
+    'uphminl-v',
+    'cidjml1-v',
+    'cidjml2-v'
+  ],
+  'upbrsgnmlminln-h' => [
+    'uphminln-h',
+    'cidjml0-h'
+  ],
+  'upbrsgnmlminln-v' => [
+    'uphminln-v',
+    'cidjml1-v',
+    'cidjml2-v'
+  ],
+  'upbrsgnmlminr-h' => [
+    'uphminr-h',
+    'cidjmr0-h'
+  ],
+  'upbrsgnmlminr-v' => [
+    'uphminr-v',
+    'cidjmr1-v',
+    'cidjmr2-v'
+  ],
+  'upbrsgnmlminrn-h' => [
+    'uphminrn-h',
+    'cidjmr0-h'
+  ],
+  'upbrsgnmlminrn-v' => [
+    'uphminrn-v',
+    'cidjmr1-v',
+    'cidjmr2-v'
+  ],
+  'upexpgothb-h' => [
+    'uphgothb-h',
+    'cidjgb2-h',
+    'cidjgb3-h',
+    'cidjgb0-h'
+  ],
+  'upexpgothb-v' => [
+    'uphgothb-v',
+    'cidjgb3-v',
+    'cidjgb4-v',
+    'cidjgb1-v',
+    'cidjgb2-v'
+  ],
+  'upexpgothbn-h' => [
+    'uphgothbn-h',
+    'cidjgb2-h',
+    'cidjgb3-h',
+    'cidjgb0-h'
+  ],
+  'upexpgothbn-v' => [
+    'uphgothbn-v',
+    'cidjgb3-v',
+    'cidjgb4-v',
+    'cidjgb1-v',
+    'cidjgb2-v'
+  ],
+  'upexpgotheb-h' => [
+    'uphgotheb-h',
+    'cidjge2-h',
+    'cidjge3-h',
+    'cidjge0-h'
+  ],
+  'upexpgotheb-v' => [
+    'uphgotheb-v',
+    'cidjge3-v',
+    'cidjge4-v',
+    'cidjge1-v',
+    'cidjge2-v'
+  ],
+  'upexpgothebn-h' => [
+    'uphgothebn-h',
+    'cidjge2-h',
+    'cidjge3-h',
+    'cidjge0-h'
+  ],
+  'upexpgothebn-v' => [
+    'uphgothebn-v',
+    'cidjge3-v',
+    'cidjge4-v',
+    'cidjge1-v',
+    'cidjge2-v'
+  ],
+  'upexpgothr-h' => [
+    'uphgothr-h',
+    'cidjgr2-h',
+    'cidjgr3-h',
+    'cidjgr0-h'
+  ],
+  'upexpgothr-v' => [
+    'uphgothr-v',
+    'cidjgr3-v',
+    'cidjgr4-v',
+    'cidjgr1-v',
+    'cidjgr2-v'
+  ],
+  'upexpgothrn-h' => [
+    'uphgothrn-h',
+    'cidjgr2-h',
+    'cidjgr3-h',
+    'cidjgr0-h'
+  ],
+  'upexpgothrn-v' => [
+    'uphgothrn-v',
+    'cidjgr3-v',
+    'cidjgr4-v',
+    'cidjgr1-v',
+    'cidjgr2-v'
+  ],
+  'upexpmgothr-h' => [
+    'uphmgothr-h',
+    'cidjmgr2-h',
+    'cidjmgr3-h',
+    'cidjmgr0-h'
+  ],
+  'upexpmgothr-v' => [
+    'uphmgothr-v',
+    'cidjmgr3-v',
+    'cidjmgr4-v',
+    'cidjmgr1-v',
+    'cidjmgr2-v'
+  ],
+  'upexpmgothrn-h' => [
+    'uphmgothrn-h',
+    'cidjmgr2-h',
+    'cidjmgr3-h',
+    'cidjmgr0-h'
+  ],
+  'upexpmgothrn-v' => [
+    'uphmgothrn-v',
+    'cidjmgr3-v',
+    'cidjmgr4-v',
+    'cidjmgr1-v',
+    'cidjmgr2-v'
+  ],
+  'upexpminb-h' => [
+    'uphminb-h',
+    'cidjmb2-h',
+    'cidjmb3-h',
+    'cidjmb0-h'
+  ],
+  'upexpminb-v' => [
+    'uphminb-v',
+    'cidjmb3-v',
+    'cidjmb4-v',
+    'cidjmb1-v',
+    'cidjmb2-v'
+  ],
+  'upexpminbn-h' => [
+    'uphminbn-h',
+    'cidjmb2-h',
+    'cidjmb3-h',
+    'cidjmb0-h'
+  ],
+  'upexpminbn-v' => [
+    'uphminbn-v',
+    'cidjmb3-v',
+    'cidjmb4-v',
+    'cidjmb1-v',
+    'cidjmb2-v'
+  ],
+  'upexpminl-h' => [
+    'uphminl-h',
+    'cidjml2-h',
+    'cidjml3-h',
+    'cidjml0-h'
+  ],
+  'upexpminl-v' => [
+    'uphminl-v',
+    'cidjml3-v',
+    'cidjml4-v',
+    'cidjml1-v',
+    'cidjml2-v'
+  ],
+  'upexpminln-h' => [
+    'uphminln-h',
+    'cidjml2-h',
+    'cidjml3-h',
+    'cidjml0-h'
+  ],
+  'upexpminln-v' => [
+    'uphminln-v',
+    'cidjml3-v',
+    'cidjml4-v',
+    'cidjml1-v',
+    'cidjml2-v'
+  ],
+  'upexpminr-h' => [
+    'uphminr-h',
+    'cidjmr2-h',
+    'cidjmr3-h',
+    'cidjmr0-h'
+  ],
+  'upexpminr-v' => [
+    'uphminr-v',
+    'cidjmr3-v',
+    'cidjmr4-v',
+    'cidjmr1-v',
+    'cidjmr2-v'
+  ],
+  'upexpminrn-h' => [
+    'uphminrn-h',
+    'cidjmr2-h',
+    'cidjmr3-h',
+    'cidjmr0-h'
+  ],
+  'upexpminrn-v' => [
+    'uphminrn-v',
+    'cidjmr3-v',
+    'cidjmr4-v',
+    'cidjmr1-v',
+    'cidjmr2-v'
+  ],
+  'upnmlgothb-h' => [
+    'uphgothb-h',
+    'cidjgb0-h'
+  ],
+  'upnmlgothb-v' => [
+    'uphgothb-v',
+    'cidjgb1-v',
+    'cidjgb2-v'
+  ],
+  'upnmlgothbn-h' => [
+    'uphgothbn-h',
+    'cidjgb0-h'
+  ],
+  'upnmlgothbn-v' => [
+    'uphgothbn-v',
+    'cidjgb1-v',
+    'cidjgb2-v'
+  ],
+  'upnmlgotheb-h' => [
+    'uphgotheb-h',
+    'cidjge0-h'
+  ],
+  'upnmlgotheb-v' => [
+    'uphgotheb-v',
+    'cidjge1-v',
+    'cidjge2-v'
+  ],
+  'upnmlgothebn-h' => [
+    'uphgothebn-h',
+    'cidjge0-h'
+  ],
+  'upnmlgothebn-v' => [
+    'uphgothebn-v',
+    'cidjge1-v',
+    'cidjge2-v'
+  ],
+  'upnmlgothr-h' => [
+    'uphgothr-h',
+    'cidjgr0-h'
+  ],
+  'upnmlgothr-v' => [
+    'uphgothr-v',
+    'cidjgr1-v',
+    'cidjgr2-v'
+  ],
+  'upnmlgothrn-h' => [
+    'uphgothrn-h',
+    'cidjgr0-h'
+  ],
+  'upnmlgothrn-v' => [
+    'uphgothrn-v',
+    'cidjgr1-v',
+    'cidjgr2-v'
+  ],
+  'upnmlmgothr-h' => [
+    'uphmgothr-h',
+    'cidjmgr0-h'
+  ],
+  'upnmlmgothr-v' => [
+    'uphmgothr-v',
+    'cidjmgr1-v',
+    'cidjmgr2-v'
+  ],
+  'upnmlmgothrn-h' => [
+    'uphmgothrn-h',
+    'cidjmgr0-h'
+  ],
+  'upnmlmgothrn-v' => [
+    'uphmgothrn-v',
+    'cidjmgr1-v',
+    'cidjmgr2-v'
+  ],
+  'upnmlminb-h' => [
+    'uphminb-h',
+    'cidjmb0-h'
+  ],
+  'upnmlminb-v' => [
+    'uphminb-v',
+    'cidjmb1-v',
+    'cidjmb2-v'
+  ],
+  'upnmlminbn-h' => [
+    'uphminbn-h',
+    'cidjmb0-h'
+  ],
+  'upnmlminbn-v' => [
+    'uphminbn-v',
+    'cidjmb1-v',
+    'cidjmb2-v'
+  ],
+  'upnmlminl-h' => [
+    'uphminl-h',
+    'cidjml0-h'
+  ],
+  'upnmlminl-v' => [
+    'uphminl-v',
+    'cidjml1-v',
+    'cidjml2-v'
+  ],
+  'upnmlminln-h' => [
+    'uphminln-h',
+    'cidjml0-h'
+  ],
+  'upnmlminln-v' => [
+    'uphminln-v',
+    'cidjml1-v',
+    'cidjml2-v'
+  ],
+  'upnmlminr-h' => [
+    'uphminr-h',
+    'cidjmr0-h'
+  ],
+  'upnmlminr-v' => [
+    'uphminr-v',
+    'cidjmr1-v',
+    'cidjmr2-v'
+  ],
+  'upnmlminrn-h' => [
+    'uphminrn-h',
+    'cidjmr0-h'
+  ],
+  'upnmlminrn-v' => [
+    'uphminrn-v',
+    'cidjmr1-v',
+    'cidjmr2-v'
+  ],
+  'upphirakakuw3-h' => [
+    'uphgothr-h',
+    'hirakaku-w3-h'
+  ],
+  'upphirakakuw3-v' => [
+    'uphgothr-v',
+    'hirakaku-w3-v'
+  ],
+  'upphirakakuw6-h' => [
+    'uphgothb-h',
+    'hirakaku-w6-h'
+  ],
+  'upphirakakuw6-v' => [
+    'uphgothb-v',
+    'hirakaku-w6-v'
+  ],
+  'upphiramaruw4-h' => [
+    'uphmgothr-h',
+    'hiramaru-w4-h'
+  ],
+  'upphiramaruw4-v' => [
+    'uphmgothr-v',
+    'hiramaru-w4-v'
+  ],
+  'upphiraminw3-h' => [
+    'uphminr-h',
+    'hiramin-w3-h'
+  ],
+  'upphiraminw3-v' => [
+    'uphminr-v',
+    'hiramin-w3-v'
+  ],
+  'upphiraminw6-h' => [
+    'uphminb-h',
+    'hiramin-w6-h'
+  ],
+  'upphiraminw6-v' => [
+    'uphminb-v',
+    'hiramin-w6-v'
+  ],
+  'uprubygothb-h' => [
+    'uphgothb-h',
+    'cidjgb3-h',
+    'cidjgb4-h',
+    'cidjgb0-h'
+  ],
+  'uprubygothb-v' => [
+    'uphgothb-v',
+    'cidjgb3-v',
+    'cidjgb4-v',
+    'cidjgb1-v',
+    'cidjgb2-v'
+  ],
+  'uprubygotheb-h' => [
+    'uphgotheb-h',
+    'cidjge3-h',
+    'cidjge4-h',
+    'cidjge0-h'
+  ],
+  'uprubygotheb-v' => [
+    'uphgotheb-v',
+    'cidjge3-v',
+    'cidjge4-v',
+    'cidjge1-v',
+    'cidjge2-v'
+  ],
+  'uprubygothr-h' => [
+    'uphgothr-h',
+    'cidjgr3-h',
+    'cidjgr4-h',
+    'cidjgr0-h'
+  ],
+  'uprubygothr-v' => [
+    'uphgothr-v',
+    'cidjgr3-v',
+    'cidjgr4-v',
+    'cidjgr1-v',
+    'cidjgr2-v'
+  ],
+  'uprubymgothr-h' => [
+    'uphmgothr-h',
+    'cidjmgr3-h',
+    'cidjmgr4-h',
+    'cidjmgr0-h'
+  ],
+  'uprubymgothr-v' => [
+    'uphmgothr-v',
+    'cidjmgr3-v',
+    'cidjmgr4-v',
+    'cidjmgr1-v',
+    'cidjmgr2-v'
+  ],
+  'uprubyminb-h' => [
+    'uphminb-h',
+    'cidjmb3-h',
+    'cidjmb4-h',
+    'cidjmb0-h'
+  ],
+  'uprubyminb-v' => [
+    'uphminb-v',
+    'cidjmb3-v',
+    'cidjmb4-v',
+    'cidjmb1-v',
+    'cidjmb2-v'
+  ],
+  'uprubyminl-h' => [
+    'uphminl-h',
+    'cidjml3-h',
+    'cidjml4-h',
+    'cidjml0-h'
+  ],
+  'uprubyminl-v' => [
+    'uphminl-v',
+    'cidjml3-v',
+    'cidjml4-v',
+    'cidjml1-v',
+    'cidjml2-v'
+  ],
+  'uprubyminr-h' => [
+    'uphminr-h',
+    'cidjmr3-h',
+    'cidjmr4-h',
+    'cidjmr0-h'
+  ],
+  'uprubyminr-v' => [
+    'uphminr-v',
+    'cidjmr3-v',
+    'cidjmr4-v',
+    'cidjmr1-v',
+    'cidjmr2-v'
+  ],
   'utfcgr0-h' => [
     'otf-ucgr-h'
   ],
@@ -2427,6 +3630,30 @@
   'utfcgrf-v' => [
     'otf-ucgr-v'
   ],
+  'utfcgrk-h' => [
+    'otf-ucgr-h'
+  ],
+  'utfcgrk-v' => [
+    'otf-ucgr-v'
+  ],
+  'utfcgrl-h' => [
+    'otf-ucgr-h'
+  ],
+  'utfcgrl-v' => [
+    'otf-ucgr-v'
+  ],
+  'utfcgrm-h' => [
+    'otf-ucgr-h'
+  ],
+  'utfcgrm-v' => [
+    'otf-ucgr-v'
+  ],
+  'utfcgro-h' => [
+    'otf-ucgr-h'
+  ],
+  'utfcgro-v' => [
+    'otf-ucgr-v'
+  ],
   'utfcmr0-h' => [
     'otf-ucmr-h'
   ],
@@ -2521,6 +3748,30 @@
     'otf-ucmr-h'
   ],
   'utfcmrf-v' => [
+    'otf-ucmr-v'
+  ],
+  'utfcmrk-h' => [
+    'otf-ucmr-h'
+  ],
+  'utfcmrk-v' => [
+    'otf-ucmr-v'
+  ],
+  'utfcmrl-h' => [
+    'otf-ucmr-h'
+  ],
+  'utfcmrl-v' => [
+    'otf-ucmr-v'
+  ],
+  'utfcmrm-h' => [
+    'otf-ucmr-h'
+  ],
+  'utfcmrm-v' => [
+    'otf-ucmr-v'
+  ],
+  'utfcmro-h' => [
+    'otf-ucmr-h'
+  ],
+  'utfcmro-v' => [
     'otf-ucmr-v'
   ],
   'utfgr0-h' => [
@@ -2715,6 +3966,116 @@
     'otf-ucgr-v',
     'otf-utgr-v'
   ],
+  'utfgrj-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfgrj-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfgrk-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrk-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrl-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrl-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrm-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrm-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrn-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrn-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgro-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgro-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrp-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrp-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrq-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrq-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrr-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrr-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrs-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrs-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrt-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrt-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgru-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgru-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrv-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrv-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgrz-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrz-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
   'utfjgb0-h' => [
     'otf-ujgb-h'
   ],
@@ -2809,6 +4170,36 @@
     'otf-ujgb-h'
   ],
   'utfjgbf-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbj-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbj-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbk-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbk-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbl-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbl-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbm-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbm-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbn-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbn-v' => [
     'otf-ujgb-v'
   ],
   'utfjgbn0-h' => [
@@ -2907,6 +4298,60 @@
   'utfjgbnf-v' => [
     'otf-ujgbn-v'
   ],
+  'utfjgbo-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbo-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbp-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbp-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbq-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbq-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbr-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbr-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbs-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbs-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbt-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbt-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbu-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbu-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbv-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbv-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgbz-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbz-v' => [
+    'otf-ujgb-v'
+  ],
   'utfjge0-h' => [
     'otf-ujge-h'
   ],
@@ -3001,6 +4446,36 @@
     'otf-ujge-h'
   ],
   'utfjgef-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgej-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgej-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgek-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgek-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgel-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgel-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgem-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgem-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgen-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgen-v' => [
     'otf-ujge-v'
   ],
   'utfjgen0-h' => [
@@ -3099,6 +4574,60 @@
   'utfjgenf-v' => [
     'otf-ujgen-v'
   ],
+  'utfjgeo-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgeo-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgep-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgep-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgeq-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgeq-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjger-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjger-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjges-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjges-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjget-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjget-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgeu-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgeu-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgev-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgev-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgez-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgez-v' => [
+    'otf-ujge-v'
+  ],
   'utfjgr0-h' => [
     'otf-ujgr-h'
   ],
@@ -3193,6 +4722,36 @@
     'otf-ujgr-h'
   ],
   'utfjgrf-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrj-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrj-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrk-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrk-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrl-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrl-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrm-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrm-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrn-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrn-v' => [
     'otf-ujgr-v'
   ],
   'utfjgrn0-h' => [
@@ -3291,6 +4850,60 @@
   'utfjgrnf-v' => [
     'otf-ujgrn-v'
   ],
+  'utfjgro-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgro-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrp-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrp-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrq-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrq-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrr-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrr-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrs-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrs-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrt-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrt-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgru-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgru-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrv-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrv-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgrz-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrz-v' => [
+    'otf-ujgr-v'
+  ],
   'utfjmb0-h' => [
     'otf-ujmb-h'
   ],
@@ -3385,6 +4998,36 @@
     'otf-ujmb-h'
   ],
   'utfjmbf-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbj-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbj-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbk-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbk-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbl-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbl-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbm-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbm-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbn-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbn-v' => [
     'otf-ujmb-v'
   ],
   'utfjmbn0-h' => [
@@ -3483,6 +5126,60 @@
   'utfjmbnf-v' => [
     'otf-ujmbn-v'
   ],
+  'utfjmbo-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbo-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbp-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbp-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbq-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbq-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbr-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbr-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbs-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbs-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbt-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbt-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbu-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbu-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbv-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbv-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbz-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbz-v' => [
+    'otf-ujmb-v'
+  ],
   'utfjmgr0-h' => [
     'otf-ujmgr-h'
   ],
@@ -3577,6 +5274,36 @@
     'otf-ujmgr-h'
   ],
   'utfjmgrf-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrj-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrj-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrk-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrk-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrl-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrl-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrm-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrm-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrn-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrn-v' => [
     'otf-ujmgr-v'
   ],
   'utfjmgrn0-h' => [
@@ -3675,6 +5402,60 @@
   'utfjmgrnf-v' => [
     'otf-ujmgrn-v'
   ],
+  'utfjmgro-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgro-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrp-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrp-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrq-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrq-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrr-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrr-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrs-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrs-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrt-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrt-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgru-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgru-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrv-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrv-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgrz-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrz-v' => [
+    'otf-ujmgr-v'
+  ],
   'utfjml0-h' => [
     'otf-ujml-h'
   ],
@@ -3769,6 +5550,36 @@
     'otf-ujml-h'
   ],
   'utfjmlf-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlj-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlj-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlk-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlk-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmll-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmll-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlm-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlm-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmln-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmln-v' => [
     'otf-ujml-v'
   ],
   'utfjmln0-h' => [
@@ -3867,6 +5678,60 @@
   'utfjmlnf-v' => [
     'otf-ujmln-v'
   ],
+  'utfjmlo-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlo-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlp-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlp-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlq-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlq-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlr-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlr-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmls-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmls-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlt-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlt-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlu-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlu-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlv-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlv-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmlz-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlz-v' => [
+    'otf-ujml-v'
+  ],
   'utfjmr0-h' => [
     'otf-ujmr-h'
   ],
@@ -3961,6 +5826,36 @@
     'otf-ujmr-h'
   ],
   'utfjmrf-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrj-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrj-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrk-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrk-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrl-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrl-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrm-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrm-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrn-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrn-v' => [
     'otf-ujmr-v'
   ],
   'utfjmrn0-h' => [
@@ -4058,6 +5953,60 @@
   ],
   'utfjmrnf-v' => [
     'otf-ujmrn-v'
+  ],
+  'utfjmro-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmro-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrp-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrp-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrq-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrq-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrr-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrr-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrs-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrs-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrt-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrt-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmru-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmru-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrv-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrv-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrz-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrz-v' => [
+    'otf-ujmr-v'
   ],
   'utfkgr0-h' => [
     'otf-ukgr-h'
@@ -4443,6 +6392,116 @@
     'otf-ucmr-v',
     'otf-utmr-v'
   ],
+  'utfmrj-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfmrj-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfmrk-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrk-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrl-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrl-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrm-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrm-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrn-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrn-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmro-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmro-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrp-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrp-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrq-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrq-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrr-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrr-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrs-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrs-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrt-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrt-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmru-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmru-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrv-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrv-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmrz-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrz-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
   'utftgr0-h' => [
     'otf-utgr-h'
   ],
@@ -4539,6 +6598,84 @@
   'utftgrf-v' => [
     'otf-utgr-v'
   ],
+  'utftgrk-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrk-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrl-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrl-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrm-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrm-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrn-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrn-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgro-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgro-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrp-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrp-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrq-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrq-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrr-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrr-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrs-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrs-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrt-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrt-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgru-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgru-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrv-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrv-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrz-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrz-v' => [
+    'otf-utgr-v'
+  ],
   'utftmr0-h' => [
     'otf-utmr-h'
   ],
@@ -4633,6 +6770,84 @@
     'otf-utmr-h'
   ],
   'utftmrf-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrk-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrk-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrl-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrl-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrm-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrm-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrn-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrn-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmro-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmro-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrp-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrp-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrq-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrq-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrr-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrr-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrs-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrs-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrt-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrt-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmru-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmru-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrv-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrv-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrz-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrz-v' => [
     'otf-utmr-v'
   ]
 );

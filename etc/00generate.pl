@@ -5,7 +5,8 @@ use Encode qw(encode decode);
 my $prog_name = 'generate';
 my $version = '0.2';
 my $mod_date = '2017/07/01';
-use Data::Dump 'dump';
+use Data::Dumper;
+$Data::Dumper::Indent = 1;
 require "cid2uni.pl";
 our (@cid2uni);
 
@@ -14,8 +15,6 @@ my $tfm_dir = "../tfm";
 my $vf_dir = "../vf";
 
 my @otf_vfname = qw(
-brsgexpXXYY-D
-brsgexpXXYYn-D
 brsgnmlXXYY-D
 brsgnmlXXYYn-D
 cidjXY0-D
@@ -24,10 +23,20 @@ cidjXY2-D
 cidjXY3-D
 cidjXY4-D
 cidjXY5-D
-expXXYY-D
-expXXYYn-D
 nmlXXYY-D
 nmlXXYYn-D
+);
+my @otfu_vfname = (
+[qw( upbrsgnmlXXYY-D uphXXYY-D )],
+[qw( upbrsgnmlXXYYn-D uphXXYYn-D )],
+[qw( upnmlXXYY-D uphXXYY-D )],
+[qw( upnmlXXYYn-D uphXXYYn-D )],
+);
+my @omitted = qw(
+brsgexpXXYY-D
+brsgexpXXYYn-D
+expXXYY-D
+expXXYYn-D
 rubyXXYY-D
 );
 
@@ -46,22 +55,28 @@ my @dir = qw( h v );
 sub main {
   local ($_);
   if (defined textool_error()) { error(); }
-  mkdir($vf_dir);
-  (-d $vf_dir) or error("cannot make", $vf_dir);
+  mkdir($vf_dir); (-d $vf_dir) or error("cannot make", $vf_dir);
+  mkdir($tfm_dir); (-d $tfm_dir) or error("cannot make", $tfm_dir);
   jcode_set('none', 'none') or error();
   pl_prefer_hex(1);
   # prepare
   make_toucs();
   # standard
-  process_shape_std("jis", "rml", "upjpnrm-h");
-  process_shape_std("jis-v", "rmlv", "upjpnrm-v");
-  process_shape_std("jisg", "gbm", "upjpngt-h");
-  process_shape_std("jisg-v", "gbmv", "upjpngt-v");
+  process_shape_std("jis", "rml", "uprml-h", "uprml-hq");
+  process_shape_std("jis-v", "rmlv", "uprml-v", "uprml-v");
+  process_shape_std("jisg", "gbm", "upgbm-h", "upgbm-h");
+  process_shape_std("jisg-v", "gbmv", "upgbm-v", "upgbm-v");
   # japanese-otf
   foreach my $vfn0 (@otf_vfname) {
     foreach my $shp (@otf_shape) {
       foreach my $dir ('h', 'v')  {
         process_shape_otf($vfn0, $shp, $dir);
+  }}}
+  foreach my $e (@otfu_vfname) {
+    my ($vfn0, $up) = @$e;
+    foreach my $shp (@otf_shape) {
+      foreach my $dir ('h', 'v')  {
+        process_shape_otf($vfn0, $shp, $dir, $up);
   }}}
 }
 
@@ -79,67 +94,94 @@ sub make_toucs {
   my %jismap = map {
     in_jis($_) => [ in_ucs($_, EJV_UPTEX), 0 ]
   } grep { defined_jis($_) } (0 .. MAX_INTCODE);
+  foreach (0x2146 .. 0x2149) {
+    $jismap{$_}[1] = 2;
+  }
   my %cidmap = map {
     my $r = $cid2uni[$_];
-    $_ => (ref $r) ? [@$r] : [ $r, 1 ]
+    $_ => (ref $r) ? [@$r] : [ $r, 0 ]
   } (0 .. $#cid2uni);
   delete $cidmap{0};
-  %toucs = ( jis => \%jismap, cid => \%cidmap );
+  my %upmap = map { $_ => [ $_, 0 ] } (0 .. 0x2FFFF);
+  foreach (0x2018, 0x2019, 0x201C, 0x201D) {
+    $upmap{$_}[1] = 2;
+  }
+  %toucs = ( jis => \%jismap, cid => \%cidmap, up => \%upmap );
 }
 
 sub process_shape_std {
-  my ($vfn, $jtfm, $utfm) = @_; local ($_);
+  my ($vfn, $jtfm, $utfm, $utfmq) = @_; local ($_);
   info("process", $vfn);
   $_ = read_whole_file(kpse("$vfn.vf"), 1) or error();
-  $_ = convert_vf($_, [$jtfm], [], [$utfm, $utfm]);
+  $_ = convert_vf($_, $utfm ne $utfmq,
+      [$jtfm], [], [], [$utfm, $utfm, $utfmq]);
   finish($vfn, $_);
 }
 
 sub process_shape_otf {
-  my ($vfn0, $shp, $dir) = @_; local ($_);
+  my ($vfn0, $shp, $dir, $up) = @_; local ($_);
   my $vfn = otf_font_name($vfn0, $shp, $dir);
   info("process", $vfn);
   $_ = read_whole_file(kpse("$vfn.vf"), 1) or error();
-  $_ = convert_vf($_,
-    [ map { otf_font_name($_, $shp, $dir) } ("hXXYY-D", "hXXYYn-D") ],
-    [ map { otf_font_name($_, $shp, $dir) } ("otf-cjXY-D") ],
-    [ map { otf_font_name($_, $shp, $dir) } ("otf-ujXY-D", "otf-ujXYn-D") ]);
+  my @x = (defined $up) ? ([$up], [$up, $up, "otf-ujXY-D"]) :
+    ([], ["otf-ujXY-D", "otf-ujXYn-D", "otf-ujXY-D"]);
+  $_ = convert_vf($_, $dir eq 'h',
+      map { [ map { otf_font_name($_, $shp, $dir) } (@$_) ] } (
+        ["hXXYY-D", "hXXYYn-D"], ["otf-cjXY-D"], @x));
   finish($vfn, $_);
 }
 
 sub convert_vf {
-  my ($vf, $jisraw, $cidraw, $uniraw) = @_;
+  my ($vf, $horz, $jisraw, $cidraw, $upraw, $uniraw) = @_;
   local $_ = vf_parse($vf) or error();
   my (@map) = grep { $_->[0] eq 'MAPFONT' } (@$_);
   my (@char) = grep { $_->[0] eq 'CHARACTER' } (@$_);
   my (@other) = grep { $_->[0] ne 'MAPFONT' && $_->[0] ne 'CHARACTER'} (@$_);
-  my %mftyp = ((map { $_ => 'jis' } (@$jisraw)), (map { $_ => 'cid' } (@$cidraw)));
+  my %mftyp = ((map { $_ => 'jis' } (@$jisraw)), (map { $_ => 'cid' } (@$cidraw)),
+      (map { $_ => 'up' } (@$upraw)));
   # MAPFONT
-  my $zmfid = 0; my ($omfid, %mfadj, @zmap);
-  foreach (@map) {
+  my ($omfid, $mfadj, $zmap) = convert_mapfont(\@map, \%mftyp, $uniraw);
+  (defined $omfid) or error("no MAPFONT");
+  info("MAPFONT count", scalar(@map) . " -> " . scalar(@$zmap));
+  # CHARACTER
+  my ($zchar) = convert_character(\@char, $omfid, $mfadj, $horz);
+  info("CHARACTER count", scalar(@char) . " -> " . scalar(@$zchar));
+  #
+  my $zvf = [ @other, @$zmap, @$zchar ];
+  return vf_form($zvf);
+}
+
+sub convert_mapfont {
+  my ($map, $mftyp, $uniraw) = @_; local ($_);
+  my ($omfid, %mfadj, @zmap, %zuni);
+  foreach (@$map) {
     ($_->[3][0] eq 'FONTNAME') or die;
     my ($mfid, $nam) = (pl_value($_, 1), $_->[3][1]);
     (defined $omfid) or $omfid = $mfid;
-    if (exists $mftyp{$nam}) {
-      my (@z, @i);
+    if (exists $mftyp->{$nam}) {
+      my @adj = ($mftyp->{$nam}); $mfadj{$mfid} = \@adj;
       foreach my $ur (@$uniraw) {
-        my $z = pl_clone($_); pl_set_value($z, 1, $zmfid);
-        $z->[3][1] = $ur;
-        push(@z, $z); push(@i, $zmfid); $zmfid += 1;
+        my $z = pl_clone($_); $z->[3][1] = $ur;
+        my $signa = pl_form([@{$z}[3..$#$z]]); my $i = $zuni{$signa};
+        if (!defined $i) {
+          push(@zmap, $z); pl_set_value($z, 1, $#zmap);
+          $i = $zuni{$signa} = $#zmap;
+        }
+        push(@adj, $i);
       }
-      push(@zmap, @z); $mfadj{$mfid} = [$mftyp{$nam}, @i];
     } else {
-      my $z = pl_clone($_); pl_set_value($z, 1, $zmfid);
-      $z->[3][1] = $prefix . $nam;
-      $mfadj{$mfid} = $zmfid; $zmfid += 1;
-      push(@zmap, $z);
+      my $z = pl_clone($_); $z->[3][1] = $prefix . $nam;
+      push(@zmap, $z); pl_set_value($z, 1, $#zmap);
+      $mfadj{$mfid} = $#zmap;
     }
   }
-  (defined $omfid) or error("no MAPFONT");
-  info("MAPFONT count", scalar(@map) . " -> " . scalar(@zmap));
-  # CHARACTER
+  return ($omfid, \%mfadj, \@zmap);
+}
+
+sub convert_character {
+  my ($char, $omfid, $mfadj, $horz) = @_; local ($_);
   my @zchar;
-  L1:foreach (@char) {
+  L1:foreach (@$char) {
     my $z = pl_clone($_);
     ($z->[4][0] eq 'MAP') or die;
     my (@zmc); my ($fid, $zfid) = ($omfid, 0);
@@ -147,12 +189,13 @@ sub convert_vf {
       if (ref $_ && $_->[0] eq 'SELECTFONT') {
         $fid = pl_value($_, 1);
       } elsif (ref $_ && $_->[0] eq 'SETCHAR') {
-        my $cc = pl_value($_, 1); my $nzfid = $mfadj{$fid};
+        my $cc = pl_value($_, 1); my $nzfid = $mfadj->{$fid};
         #info("from", $fid, $cc);
         if (ref $nzfid) {
           my ($typ, @nzf) = @$nzfid;
           my $r = $toucs{$typ}{$cc} or next L1;
-          ($cc, $r) = @$r; $nzfid = $nzf[$r];
+          ($cc, $r) = @$r; ($r == 2 && !$horz) and $r = 0;
+          $nzfid = $nzf[$r];
         }
         #info("to", $nzfid, $cc);
         if ($zfid != $nzfid) {
@@ -166,10 +209,7 @@ sub convert_vf {
     }
     $z->[4] = \@zmc; push(@zchar, $z);
   }
-  info("CHARACTER count", scalar(@char) . " -> " . scalar(@zchar));
-  #
-  my $zvf = [ @other, @zmap, @zchar ];
-  return vf_form($zvf);
+  return (\@zchar);
 }
 
 sub finish {
