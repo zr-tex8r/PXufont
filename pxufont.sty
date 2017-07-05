@@ -10,7 +10,7 @@
 
 %% package declaration
 \NeedsTeXFormat{pLaTeX2e}
-\ProvidesPackage{pxufont}[2017/06/28 v0.2]
+\ProvidesPackage{pxufont}[2017/07/07 v0.3]
 \def\pxuf@pkgname{pxufont}
 %
 \providecommand\bxDebug[1]{}
@@ -23,6 +23,21 @@
 %% unique tokens
 \def\pxuf@end{\pxuf@end@}
 \def\pxuf@mt{\pxuf@mt@}
+
+%% \pxuf@split{<at>}{<target>}
+\def\pxuf@split#1#2{%
+  \edef\pxuf@tmpx{{#1}{#2}}%
+  \expandafter\pxuf@split@a\pxuf@tmpx}
+\def\pxuf@split@a#1#2{%
+  \def\pxuf@tmpx##1#1##2\pxuf@end{\pxuf@split@b{##1}{##2}}%
+  \pxuf@tmpx#2\pxuf@mt#1\pxuf@end}
+\def\pxuf@split@b#1#2{%
+  \let\pxuf@pre\relax \let\pxuf@post\relax
+  \ifx\pxuf@end#2\pxuf@end\else
+    \pxuf@split@c#2\pxuf@end{#1}%
+  \fi}
+\def\pxuf@split@c#1\pxuf@mt#2\pxuf@end#3{%
+  \def\pxuf@pre{#3}\def\pxuf@post{#1}}
 
 %% swutch 'pxuf@otf@used'
 \newif\ifpxuf@otf@used
@@ -77,8 +92,21 @@
   \def\pxuf@parse@spec@b##1#1##2#2##3#3##4\pxuf@end{%
     \ifx\pxuf@mt##4\pxuf@mt\else
       \def\pxuf@scale{##2}\def\pxuf@tfm{##3}%
+      \pxuf@change@tfm
    \fi}%
 }\expandafter\pxuf@tmpa\pxuf@tmpb
+
+%% \pxuf@change@tfm
+\def\pxuf@tmpb#1/#2/#3/#4\pxuf@end{%
+  \def\pxuf@change@tfm{%
+    \pxuf@change@tfm@a{#2}{#4}%
+    \pxuf@change@tfm@a{#3}{#4}}
+}\def\pxuf@tmpa{/exp/ruby/nml}
+\expandafter\pxuf@tmpb\meaning\pxuf@tmpa\pxuf@end
+\def\pxuf@change@tfm@a#1#2{%
+  \pxuf@split{#1}\pxuf@tfm\ifx\pxuf@pre\relax\else
+    \edef\pxuf@tfm{\pxuf@pre#2\pxuf@post}%
+  \fi}
 
 %% \pxuf@process@one
 \def\pxuf@process@one#1#2#3#4#5{%
@@ -95,7 +123,7 @@
   \fi}
 
 %% process
-\ifpxuf@otf@used\ifNativeupTeX\else
+\ifpxuf@otf@used
   \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
     \@for\pxuf@x:={hmc,hgt,mg,ruby,rubyg,rubymg}\do{%
       \@for\pxuf@y:={l,m,bx,eb}\do{%
@@ -103,8 +131,6 @@
           \expandafter\let\csname pxuf@DF/\pxuf@x\endcsname=t%
           \pxuf@process@one{t}\pxuf@w\pxuf@x\pxuf@y{n}%
         \fi}}}
-\fi\fi
-\ifpxuf@otf@used
   \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
     \@for\pxuf@x:={cidj,cidjg,cidjmg}\do{%
       \@for\pxuf@y:={l,m,bx,eb}\do{%
