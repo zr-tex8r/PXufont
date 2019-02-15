@@ -58,6 +58,10 @@ done through the package option.
 Revision History
 ----------------
 
+  * Version 0.4  〈2019/02/15〉
+      - Support for the fonts of `min10` series.
+      - Fix erroneous `zu-jisg.vf`.
+
   * Version 0.3  〈2017/07/07〉
       - Emulate also some Unicode fonts which VFs map to non-Unicode fonts.
   * Version 0.2  〈2017/06/28〉
