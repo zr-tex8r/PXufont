@@ -1,7 +1,7 @@
 %%
 %% This is file 'pxufont.sty'.
 %% 
-%% Copyright (c) 2017 Takayuki YATO (aka. "ZR")
+%% Copyright (c) 2019 Takayuki YATO (aka. "ZR")
 %%   GitHub:   https://github.com/zr-tex8r
 %%   Twitter:  @zr_tex8r
 %%
@@ -10,7 +10,7 @@
 
 %% package declaration
 \NeedsTeXFormat{pLaTeX2e}
-\ProvidesPackage{pxufont}[2017/07/07 v0.3]
+\ProvidesPackage{pxufont}[2019/02/15 v0.4-pre]
 \def\pxuf@pkgname{pxufont}
 %
 \providecommand\bxDebug[1]{}
@@ -58,6 +58,14 @@
 \def\pxuf@JY{JY1}\def\pxuf@JT{JT1}
 \fi
 
+%% \pxuf@edef@detokenized\CS{<body>}
+\def\pxuf@edef@detokenized#1{%
+  \def\pxuf@tmpx{%
+    \expandafter\pxuf@edef@detokenized@a\meaning#1\pxuf@end#1}%
+  \afterassignment\pxuf@tmpx\edef#1}
+\def\pxuf@edef@detokenized@a#1>#2\pxuf@end#3{%
+  \def#3{#2}}
+
 %--------------------------------------- general
 \begingroup
 
@@ -80,21 +88,32 @@
 
 %% \pxuf@parse@spec{E/F/S/S}
 % Sets \pxuf@scale and \pxuf@tfm.
-\edef\pxuf@tmpb{%
-  {\expandafter\string\csname<->s\endcsname*[}{]}{$}}
-\def\pxuf@tmpa#1#2#3{%
-  \def\pxuf@parse@spec##1{%
-    \let\pxuf@scale\relax\let\pxuf@tfm\relax
-    \expandafter\expandafter\expandafter\pxuf@parse@spec@a
-        \csname##1\endcsname}%
-  \def\pxuf@parse@spec@a##1{%
-    \expandafter\pxuf@parse@spec@b\string##1#3#1#2#3\pxuf@end}
-  \def\pxuf@parse@spec@b##1#1##2#2##3#3##4\pxuf@end{%
-    \ifx\pxuf@mt##4\pxuf@mt\else
-      \def\pxuf@scale{##2}\def\pxuf@tfm{##3}%
-      \pxuf@change@tfm
-   \fi}%
-}\expandafter\pxuf@tmpa\pxuf@tmpb
+\def\pxuf@parse@spec#1{%
+  \let\pxuf@scale\relax \let\pxuf@tfm\relax
+  \expandafter\expandafter\expandafter\pxuf@parse@spec@a
+      \csname#1\endcsname}%
+\def\pxuf@parse@spec@a#1{%
+  \expandafter\pxuf@parse@spec@b\string#1<-><$}
+\def\pxuf@parse@spec@b#1<->#2<#3${%
+  \pxuf@parse@spec@c#2**$}% #2=font-info for <->
+\def\pxuf@parse@spec@c#1*#2*#3${%
+  \ifx\pxuf@mt#3\pxuf@mt % no * in font-info
+    \pxuf@parse@spec@d#1*$% #1=x-fontarg
+  \else \def\pxuf@tmpb{#1}% #1=size-func
+    \ifx\pxuf@tmpb\pxuf@@s \let\pxuf@tmpb\@empty \fi
+    \ifx\pxuf@tmpb\@empty
+      \pxuf@parse@spec@d#2*$% #2=x-fontarg
+    \fi
+  \fi}
+\def\pxuf@parse@spec@d#1#2${%
+  \ifx*#1% then no-op
+  \else\ifx[#1\pxuf@parse@spec@e#2$%
+  \else \pxuf@parse@spec@e1]#1#2$%
+  \fi\fi}
+\def\pxuf@parse@spec@e#1]#2*#3${%
+  \def\pxuf@scale{#1}\def\pxuf@tfm{#2}%
+  \pxuf@change@tfm}
+\pxuf@edef@detokenized\pxuf@@s{s}
 
 %% \pxuf@change@tfm
 \def\pxuf@tmpb#1/#2/#3/#4\pxuf@end{%
@@ -114,7 +133,9 @@
   \pxuf@parse@spec{#2/#3/#4/#5}%
   \ifx\pxuf@tfm\relax\else
 \bxDebug{spec=\pxuf@scale:\pxuf@tfm}%
-    \DeclareFontShape{#2}{#3}{#4}{#5}{<->s*[\pxuf@scale]zu-\pxuf@tfm}{}%
+    \DeclareFontShape{#2}{#3}{#4}{#5}{<->%
+        \ifdim\pxuf@scale\p@=\p@\else s*[\pxuf@scale]\fi
+        zu-\pxuf@tfm}{}%
     \if t#1%
       \@for\pxuf@tmpa:=\pxuf@reset@size\do{%
         \global\expandafter\let\csname#2/#3/#4/#5/\pxuf@tmpa
@@ -128,7 +149,7 @@
     \@for\pxuf@x:={hmc,hgt,mg,ruby,rubyg,rubymg}\do{%
       \@for\pxuf@y:={l,m,bx,eb}\do{%
         \expandafter\ifx\csname\pxuf@w/\pxuf@x/\pxuf@y/n\endcsname\relax\else
-          \expandafter\let\csname pxuf@DF/\pxuf@x\endcsname=t%
+          \expandafter\let\csname pxuf@DF/\pxuf@w/\pxuf@x\endcsname=t%
           \pxuf@process@one{t}\pxuf@w\pxuf@x\pxuf@y{n}%
         \fi}}}
   \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
@@ -142,9 +163,9 @@
 \ifNativeupTeX\else
   \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
     \@for\pxuf@x:={\mcdefault,\gtdefault,mc,gt}\do{%
-      \expandafter\ifx\csname pxuf@DF/\pxuf@x\endcsname\relax
+      \expandafter\ifx\csname pxuf@DF/\pxuf@w/\pxuf@x\endcsname\relax
         \expandafter\ifx\csname\pxuf@w/\pxuf@x/m/n\endcsname\relax\else
-          \expandafter\let\csname pxuf@DF/\pxuf@x\endcsname=t%
+          \expandafter\let\csname pxuf@DF/\pxuf@w/\pxuf@x\endcsname=t%
           \pxuf@process@one{t}\pxuf@w\pxuf@x{m}{n}%
         \fi
       \fi}}
