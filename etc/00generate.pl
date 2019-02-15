@@ -107,12 +107,6 @@ my (%toucs);
 # Prepares %toucs.
 sub make_toucs {
   info("make_toucs");
-  my %jismap = map {
-    in_jis($_) => [ in_ucs($_, EJV_UPTEX), 0 ]
-  } grep { defined_jis($_) } (0 .. MAX_INTCODE);
-  foreach (0x2146 .. 0x2149) {
-    $jismap{$_}[1] = 2;
-  }
   my %cidmap = map {
     my $r = $cid2uni[$_];
     $_ => (ref $r) ? [@$r] : [ $r, 0 ]
@@ -122,6 +116,10 @@ sub make_toucs {
   foreach (0x2018, 0x2019, 0x201C, 0x201D) {
     $upmap{$_}[1] = 2;
   }
+  my %jismap = map {
+    my $uc = in_ucs($_, EJV_UPTEX);
+    in_jis($_) => $upmap{$uc}
+  } grep { defined_jis($_) } (0 .. MAX_INTCODE);
   %toucs = ( jis => \%jismap, cid => \%cidmap, up => \%upmap );
 }
 
