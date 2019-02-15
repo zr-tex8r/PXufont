@@ -73,8 +73,12 @@ sub main {
   # standard
   process_shape_std("jis", "rml", "uprml-h", "uprml-hq");
   process_shape_std("jis-v", "rmlv", "uprml-v", "uprml-v");
-  process_shape_std("jisg", "gbm", "upgbm-h", "upgbm-h");
+  process_shape_std("jisg", "gbm", "upgbm-h", "upgbm-hq");
   process_shape_std("jisg-v", "gbmv", "upgbm-v", "upgbm-v");
+  process_shape_std("min10", "rml", "uprml-h", "uprml-hq");
+  process_shape_std("tmin10", "rmlv", "uprml-v", "uprml-v");
+  process_shape_std("goth10", "gbm", "upgbm-h", "upgbm-hq");
+  process_shape_std("tgoth10", "gbmv", "upgbm-v", "upgbm-v");
   # japanese-otf
   foreach my $vfn0 (@otf_vfname) {
     foreach my $shp (@otf_shape) {
