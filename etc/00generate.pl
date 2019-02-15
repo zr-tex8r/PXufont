@@ -10,10 +10,13 @@ $Data::Dumper::Indent = 1;
 require "cid2uni.pl";
 our (@cid2uni);
 
+# the prefix to be attached to new VFs
 my $prefix = "zu-";
+# output directories
 my $tfm_dir = "../tfm";
 my $vf_dir = "../vf";
 
+# list of non-Unicode japanese-otf VF name-formats
 my @otf_vfname = qw(
 brsgnmlXXYY-D
 brsgnmlXXYYn-D
@@ -26,20 +29,25 @@ cidjXY5-D
 nmlXXYY-D
 nmlXXYYn-D
 );
+# list of Unicode japanese-otf VF info
+# entry: [<vf_nformat>, <main_raw_tfm_nformat>]
 my @otfu_vfname = (
 [qw( upbrsgnmlXXYY-D uphXXYY-D )],
 [qw( upbrsgnmlXXYYn-D uphXXYYn-D )],
 [qw( upnmlXXYY-D uphXXYY-D )],
 [qw( upnmlXXYYn-D uphXXYYn-D )],
 );
-my @omitted = qw(
-brsgexpXXYY-D
-brsgexpXXYYn-D
-expXXYY-D
-expXXYYn-D
-rubyXXYY-D
-);
+#
+#my @omitted = qw(
+#brsgexpXXYY-D
+#brsgexpXXYYn-D
+#expXXYY-D
+#expXXYYn-D
+#rubyXXYY-D
+#);
 
+# list of shape entries
+# entry: [<XX>, <X>, <YY>, <Y>]
 my @otf_shape = map { [ split(m|/|, $_) ] } qw(
 min/m/l/l
 min/m/r/r
@@ -50,6 +58,7 @@ goth/g/eb/e
 mgoth/mg/r/r
 ); # XX/X/YY/Y
 
+# direction symbols
 my @dir = qw( h v );
 
 sub main {
@@ -80,6 +89,8 @@ sub main {
   }}}
 }
 
+## otf_font_name(<nformat>, <shape_entry>, <dir_sym>)
+# The actual font name.
 sub otf_font_name {
   my ($name0, $shape, $dir) = @_;
   local $_ = $name0; my ($xx, $x, $yy, $y) = @$shape;
@@ -87,8 +98,13 @@ sub otf_font_name {
   return $_;
 }
 
+# code conversion map
+# <in_code> -> [<unicode>, <glyph_var>]
+# glyph_var: 0=90JIS, 1=2004JIS, 2=quote
 my (%toucs);
 
+## make_toucs()
+# Prepares %toucs.
 sub make_toucs {
   info("make_toucs");
   my %jismap = map {
@@ -109,6 +125,8 @@ sub make_toucs {
   %toucs = ( jis => \%jismap, cid => \%cidmap, up => \%upmap );
 }
 
+## process_shape_std(<vf_name>, <jis_tfm_name>, <uni_tfm_name>,
+#    <quote_tfm_name>)
 sub process_shape_std {
   my ($vfn, $jtfm, $utfm, $utfmq) = @_; local ($_);
   info("process", $vfn);
@@ -118,6 +136,8 @@ sub process_shape_std {
   finish($vfn, $_);
 }
 
+## process_shape_otf(<vf_nformat>, <shape_entry>, <dir_sym>
+#    [, <main_raw_tfm_nformat>])
 sub process_shape_otf {
   my ($vfn0, $shp, $dir, $up) = @_; local ($_);
   my $vfn = otf_font_name($vfn0, $shp, $dir);
@@ -131,6 +151,8 @@ sub process_shape_otf {
   finish($vfn, $_);
 }
 
+## convert_vf(<vf_name>, <is_horiz>, <jis_tfm_name_list>,
+#    <cid_tfm_name_list>, <main_tfm_name_list>, <uni_tfm_name_lsit>)
 sub convert_vf {
   my ($vf, $horz, $jisraw, $cidraw, $upraw, $uniraw) = @_;
   local $_ = vf_parse($vf) or error();
@@ -151,6 +173,13 @@ sub convert_vf {
   return vf_form($zvf);
 }
 
+## convert_mapfont(<map_data>, <mapfont_type_map>, <uni_tfm_name_list>)
+# mapfont_type_map: <tfm_name> -> <mapfont_type>
+# mapfont_type: either of 'jis', 'cid', 'up'
+# Returns (<init_mapfont_id>, <mapfont_adjust_map>, <out_map_data>).
+# mapfont_adjust_map: <in_mapfont_id> ->
+#    either of <out_mapfont_id> or <out_mapfont_id_list>
+# out_mapfont_id_list: out-mapfont-id for each of <uni_tfm_name_list>
 sub convert_mapfont {
   my ($map, $mftyp, $uniraw) = @_; local ($_);
   my ($omfid, %mfadj, @zmap, %zuni);
@@ -178,6 +207,8 @@ sub convert_mapfont {
   return ($omfid, \%mfadj, \@zmap);
 }
 
+## convert_character(<in_char_data>, <init_mapfont_id>,
+#   <mapfont_adjust_map>, <is_horiz>)
 sub convert_character {
   my ($char, $omfid, $mfadj, $horz) = @_; local ($_);
   my @zchar;
