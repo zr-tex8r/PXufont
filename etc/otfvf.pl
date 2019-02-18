@@ -267,16 +267,6 @@
   'nmlminr-v',
   'nmlminrn-h',
   'nmlminrn-v',
-  'phirakakuw3-h',
-  'phirakakuw3-v',
-  'phirakakuw6-h',
-  'phirakakuw6-v',
-  'phiramaruw4-h',
-  'phiramaruw4-v',
-  'phiraminw3-h',
-  'phiraminw3-v',
-  'phiraminw6-h',
-  'phiraminw6-v',
   'rubygothb-h',
   'rubygothb-v',
   'rubygotheb-h',
@@ -1107,16 +1097,6 @@
   'upnmlminr-v',
   'upnmlminrn-h',
   'upnmlminrn-v',
-  'upphirakakuw3-h',
-  'upphirakakuw3-v',
-  'upphirakakuw6-h',
-  'upphirakakuw6-v',
-  'upphiramaruw4-h',
-  'upphiramaruw4-v',
-  'upphiraminw3-h',
-  'upphiraminw3-v',
-  'upphiraminw6-h',
-  'upphiraminw6-v',
   'uprubygothb-h',
   'uprubygothb-v',
   'uprubygotheb-h',
@@ -1173,6 +1153,12 @@
   'utfgru-v',
   'utfgrv-h',
   'utfgrv-v',
+  'utfgrw-h',
+  'utfgrw-v',
+  'utfgrx-h',
+  'utfgrx-v',
+  'utfgry-h',
+  'utfgry-v',
   'utfgrz-h',
   'utfgrz-v',
   'utfjgbj-h',
@@ -1201,6 +1187,10 @@
   'utfjgbu-v',
   'utfjgbv-h',
   'utfjgbv-v',
+  'utfjgbx-h',
+  'utfjgbx-v',
+  'utfjgby-h',
+  'utfjgby-v',
   'utfjgbz-h',
   'utfjgbz-v',
   'utfjgej-h',
@@ -1229,6 +1219,10 @@
   'utfjgeu-v',
   'utfjgev-h',
   'utfjgev-v',
+  'utfjgex-h',
+  'utfjgex-v',
+  'utfjgey-h',
+  'utfjgey-v',
   'utfjgez-h',
   'utfjgez-v',
   'utfjgrj-h',
@@ -1257,6 +1251,10 @@
   'utfjgru-v',
   'utfjgrv-h',
   'utfjgrv-v',
+  'utfjgrx-h',
+  'utfjgrx-v',
+  'utfjgry-h',
+  'utfjgry-v',
   'utfjgrz-h',
   'utfjgrz-v',
   'utfjmbj-h',
@@ -1285,6 +1283,10 @@
   'utfjmbu-v',
   'utfjmbv-h',
   'utfjmbv-v',
+  'utfjmbx-h',
+  'utfjmbx-v',
+  'utfjmby-h',
+  'utfjmby-v',
   'utfjmbz-h',
   'utfjmbz-v',
   'utfjmgrj-h',
@@ -1313,6 +1315,10 @@
   'utfjmgru-v',
   'utfjmgrv-h',
   'utfjmgrv-v',
+  'utfjmgrx-h',
+  'utfjmgrx-v',
+  'utfjmgry-h',
+  'utfjmgry-v',
   'utfjmgrz-h',
   'utfjmgrz-v',
   'utfjmlj-h',
@@ -1341,6 +1347,10 @@
   'utfjmlu-v',
   'utfjmlv-h',
   'utfjmlv-v',
+  'utfjmlx-h',
+  'utfjmlx-v',
+  'utfjmly-h',
+  'utfjmly-v',
   'utfjmlz-h',
   'utfjmlz-v',
   'utfjmrj-h',
@@ -1369,6 +1379,10 @@
   'utfjmru-v',
   'utfjmrv-h',
   'utfjmrv-v',
+  'utfjmrx-h',
+  'utfjmrx-v',
+  'utfjmry-h',
+  'utfjmry-v',
   'utfjmrz-h',
   'utfjmrz-v',
   'utfmrj-h',
@@ -1397,6 +1411,12 @@
   'utfmru-v',
   'utfmrv-h',
   'utfmrv-v',
+  'utfmrw-h',
+  'utfmrw-v',
+  'utfmrx-h',
+  'utfmrx-v',
+  'utfmry-h',
+  'utfmry-v',
   'utfmrz-h',
   'utfmrz-v',
   'utftgrk-h',
@@ -1423,6 +1443,10 @@
   'utftgru-v',
   'utftgrv-h',
   'utftgrv-v',
+  'utftgrw-h',
+  'utftgrw-v',
+  'utftgrx-h',
+  'utftgrx-v',
   'utftgrz-h',
   'utftgrz-v',
   'utftmrk-h',
@@ -1449,6 +1473,10 @@
   'utftmru-v',
   'utftmrv-h',
   'utftmrv-v',
+  'utftmrw-h',
+  'utftmrw-v',
+  'utftmrx-h',
+  'utftmrx-v',
   'utftmrz-h',
   'utftmrz-v'
 );
@@ -2677,46 +2705,6 @@
     'cidjmr4-v',
     'cidjmr5-v'
   ],
-  'phirakakuw3-h' => [
-    'hgothr-h',
-    'hirakaku-w3-h'
-  ],
-  'phirakakuw3-v' => [
-    'hgothr-v',
-    'hirakaku-w3-v'
-  ],
-  'phirakakuw6-h' => [
-    'hgothb-h',
-    'hirakaku-w6-h'
-  ],
-  'phirakakuw6-v' => [
-    'hgothb-v',
-    'hirakaku-w6-v'
-  ],
-  'phiramaruw4-h' => [
-    'hmgothr-h',
-    'hiramaru-w4-h'
-  ],
-  'phiramaruw4-v' => [
-    'hmgothr-v',
-    'hiramaru-w4-v'
-  ],
-  'phiraminw3-h' => [
-    'hminr-h',
-    'hiramin-w3-h'
-  ],
-  'phiraminw3-v' => [
-    'hminr-v',
-    'hiramin-w3-v'
-  ],
-  'phiraminw6-h' => [
-    'hminb-h',
-    'hiramin-w6-h'
-  ],
-  'phiraminw6-v' => [
-    'hminb-v',
-    'hiramin-w6-v'
-  ],
   'rubygothb-h' => [
     'hgothb-h',
     'cidjgb3-h'
@@ -3403,46 +3391,6 @@
     'cidjmr1-v',
     'cidjmr2-v'
   ],
-  'upphirakakuw3-h' => [
-    'uphgothr-h',
-    'hirakaku-w3-h'
-  ],
-  'upphirakakuw3-v' => [
-    'uphgothr-v',
-    'hirakaku-w3-v'
-  ],
-  'upphirakakuw6-h' => [
-    'uphgothb-h',
-    'hirakaku-w6-h'
-  ],
-  'upphirakakuw6-v' => [
-    'uphgothb-v',
-    'hirakaku-w6-v'
-  ],
-  'upphiramaruw4-h' => [
-    'uphmgothr-h',
-    'hiramaru-w4-h'
-  ],
-  'upphiramaruw4-v' => [
-    'uphmgothr-v',
-    'hiramaru-w4-v'
-  ],
-  'upphiraminw3-h' => [
-    'uphminr-h',
-    'hiramin-w3-h'
-  ],
-  'upphiraminw3-v' => [
-    'uphminr-v',
-    'hiramin-w3-v'
-  ],
-  'upphiraminw6-h' => [
-    'uphminb-h',
-    'hiramin-w6-h'
-  ],
-  'upphiraminw6-v' => [
-    'uphminb-v',
-    'hiramin-w6-v'
-  ],
   'uprubygothb-h' => [
     'uphgothb-h',
     'cidjgb3-h',
@@ -4068,6 +4016,26 @@
     'otf-ujgr-v',
     'otf-utgr-v'
   ],
+  'utfgrw-h' => [
+    'otf-utgr-h'
+  ],
+  'utfgrw-v' => [
+    'otf-utgr-v'
+  ],
+  'utfgrx-h' => [
+    'otf-ujgr-h',
+    'otf-utgr-h'
+  ],
+  'utfgrx-v' => [
+    'otf-ujgr-v',
+    'otf-utgr-v'
+  ],
+  'utfgry-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfgry-v' => [
+    'otf-ujgr-v'
+  ],
   'utfgrz-h' => [
     'otf-ujgr-h',
     'otf-utgr-h'
@@ -4346,6 +4314,18 @@
   'utfjgbv-v' => [
     'otf-ujgb-v'
   ],
+  'utfjgbx-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgbx-v' => [
+    'otf-ujgb-v'
+  ],
+  'utfjgby-h' => [
+    'otf-ujgb-h'
+  ],
+  'utfjgby-v' => [
+    'otf-ujgb-v'
+  ],
   'utfjgbz-h' => [
     'otf-ujgb-h'
   ],
@@ -4620,6 +4600,18 @@
     'otf-ujge-h'
   ],
   'utfjgev-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgex-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgex-v' => [
+    'otf-ujge-v'
+  ],
+  'utfjgey-h' => [
+    'otf-ujge-h'
+  ],
+  'utfjgey-v' => [
     'otf-ujge-v'
   ],
   'utfjgez-h' => [
@@ -4898,6 +4890,18 @@
   'utfjgrv-v' => [
     'otf-ujgr-v'
   ],
+  'utfjgrx-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgrx-v' => [
+    'otf-ujgr-v'
+  ],
+  'utfjgry-h' => [
+    'otf-ujgr-h'
+  ],
+  'utfjgry-v' => [
+    'otf-ujgr-v'
+  ],
   'utfjgrz-h' => [
     'otf-ujgr-h'
   ],
@@ -5172,6 +5176,18 @@
     'otf-ujmb-h'
   ],
   'utfjmbv-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmbx-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmbx-v' => [
+    'otf-ujmb-v'
+  ],
+  'utfjmby-h' => [
+    'otf-ujmb-h'
+  ],
+  'utfjmby-v' => [
     'otf-ujmb-v'
   ],
   'utfjmbz-h' => [
@@ -5450,6 +5466,18 @@
   'utfjmgrv-v' => [
     'otf-ujmgr-v'
   ],
+  'utfjmgrx-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgrx-v' => [
+    'otf-ujmgr-v'
+  ],
+  'utfjmgry-h' => [
+    'otf-ujmgr-h'
+  ],
+  'utfjmgry-v' => [
+    'otf-ujmgr-v'
+  ],
   'utfjmgrz-h' => [
     'otf-ujmgr-h'
   ],
@@ -5726,6 +5754,18 @@
   'utfjmlv-v' => [
     'otf-ujml-v'
   ],
+  'utfjmlx-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmlx-v' => [
+    'otf-ujml-v'
+  ],
+  'utfjmly-h' => [
+    'otf-ujml-h'
+  ],
+  'utfjmly-v' => [
+    'otf-ujml-v'
+  ],
   'utfjmlz-h' => [
     'otf-ujml-h'
   ],
@@ -6000,6 +6040,18 @@
     'otf-ujmr-h'
   ],
   'utfjmrv-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmrx-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmrx-v' => [
+    'otf-ujmr-v'
+  ],
+  'utfjmry-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfjmry-v' => [
     'otf-ujmr-v'
   ],
   'utfjmrz-h' => [
@@ -6494,6 +6546,26 @@
     'otf-ujmr-v',
     'otf-utmr-v'
   ],
+  'utfmrw-h' => [
+    'otf-utmr-h'
+  ],
+  'utfmrw-v' => [
+    'otf-utmr-v'
+  ],
+  'utfmrx-h' => [
+    'otf-ujmr-h',
+    'otf-utmr-h'
+  ],
+  'utfmrx-v' => [
+    'otf-ujmr-v',
+    'otf-utmr-v'
+  ],
+  'utfmry-h' => [
+    'otf-ujmr-h'
+  ],
+  'utfmry-v' => [
+    'otf-ujmr-v'
+  ],
   'utfmrz-h' => [
     'otf-ujmr-h',
     'otf-utmr-h'
@@ -6670,6 +6742,18 @@
   'utftgrv-v' => [
     'otf-utgr-v'
   ],
+  'utftgrw-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrw-v' => [
+    'otf-utgr-v'
+  ],
+  'utftgrx-h' => [
+    'otf-utgr-h'
+  ],
+  'utftgrx-v' => [
+    'otf-utgr-v'
+  ],
   'utftgrz-h' => [
     'otf-utgr-h'
   ],
@@ -6842,6 +6926,18 @@
     'otf-utmr-h'
   ],
   'utftmrv-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrw-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrw-v' => [
+    'otf-utmr-v'
+  ],
+  'utftmrx-h' => [
+    'otf-utmr-h'
+  ],
+  'utftmrx-v' => [
     'otf-utmr-v'
   ],
   'utftmrz-h' => [
