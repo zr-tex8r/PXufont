@@ -15,8 +15,10 @@
 
 %--------------------------------------- main
 
-\let\pxufontUseRubyFont=t
-\RequirePackage{pxufont}\relax
+\@ifpackageloaded{pxufont}{}{%else
+  \let\pxufontUseRubyFont=t
+  \RequirePackage{pxufont}\relax
+}
 
 %--------------------------------------- done
 \endinput

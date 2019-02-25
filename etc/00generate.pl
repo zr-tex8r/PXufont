@@ -65,6 +65,7 @@ goth/g/b/b
 goth/g/eb/e
 mgoth/mg/r/r
 ); # XX/X/YY/Y
+#$#otf_shape=0;
 
 # direction symbols
 my @dir = qw( h v );
@@ -99,6 +100,10 @@ sub main {
       foreach my $dir ('h', 'v')  {
         process_shape_otf($vfn0, $shp, $dir, $up);
   }}}
+  foreach my $shp (@otf_shape) {
+    foreach my $dir ('h', 'v')  {
+      process_extra_raw_tfm($shp, $dir);
+  }}
 }
 
 ## otf_font_name(<nformat>, <shape_entry>, <dir_sym>)
@@ -175,6 +180,7 @@ sub process_shape_otf {
       map { [ map { otf_font_name($_, $shp, $dir) } (@$_) ] } (
         ["hXXYY-D", "hXXYYn-D"], ["otf-cjXY-D"], @x));
   finish($vfn, $_);
+  (defined $avfn) and finish_ruby($shp, $dir);
 }
 
 ## convert_vf(<vf_name>, <is_horiz>, <is_ruby>, <jis_tfm_name_list>,
@@ -270,12 +276,31 @@ sub convert_character {
   return (\@zchar);
 }
 
+## process_extra_raw_tfm(<shape_entry>, <dir_sym>)
+sub process_extra_raw_tfm {
+  my ($shp, $dir) = @_;
+  foreach my $otfmn0 ("zur-gjXY-D") {
+    my $tfmn = otf_font_name("hXXYY-D", $shp, $dir);
+    my $otfmn = otf_font_name($otfmn0, $shp, $dir);
+    my $tfm = read_whole_file(kpse("$tfmn.tfm"), 1) or error();
+    write_whole_file("$tfm_dir/$otfmn.tfm", $tfm, 1) or error();
+  }
+}
+
 sub finish {
   my ($vfn, $vf) = @_;
   my $ovfn = $prefix . $vfn;
   my $tfm = read_whole_file(kpse("$vfn.tfm"), 1) or error();
   write_whole_file("$tfm_dir/$ovfn.tfm", $tfm, 1) or error();
   write_whole_file("$vf_dir/$ovfn.vf", $vf, 1) or error();
+}
+
+sub finish_ruby {
+  my ($shp, $dir) = @_;
+  my $tfmn = otf_font_name("hXXYY-D", $shp, $dir);
+  my $otfmn = otf_font_name("zur-rjXY-D", $shp, $dir);
+  my $tfm = read_whole_file(kpse("$tfmn.tfm"), 1) or error();
+  write_whole_file("$tfm_dir/$otfmn.tfm", $tfm, 1) or error();
 }
 
 sub info {
