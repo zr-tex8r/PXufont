@@ -1,7 +1,6 @@
 use v5.12;
 use ZRTeXtor ':all';
 use ZRJCode ':all';
-use ZRWidthCid;
 use Encode qw(encode decode);
 my $prog_name = 'generate';
 my $version = '0.5-pre';
@@ -44,6 +43,10 @@ my @otfu_vfname = (
 sub ruby_alternate_font {
   local ($_) = @_;
   return (s/ruby/nml/) ? $_ : undef;
+}
+sub is_jis_otf_font {
+  local ($_) = @_;
+  return !!(m/nml/ && !m/^up/);
 }
 #
 #my @omitted = qw(
@@ -116,7 +119,7 @@ sub otf_font_name {
 }
 
 # code conversion map
-# <in_code> -> [<unicode>, <glyph_var>, <ruby_switch>]
+# <in_code> -> [<unicode>, <glyph_var>, <ruby_switch>, <jiskana_sw>]
 # glyph_var: 0=90JIS, 1=2004JIS, 2=quote
 # ruby_switch: 0=normal, 1=ruby
 my (%toucs);
@@ -125,30 +128,28 @@ my (%toucs);
 # Prepares %toucs.
 sub make_toucs {
   info("make_toucs");
+  my %hwucs = map { $_ => 1 } (0x20 .. 0x7E, 0xFF61 .. 0xFF9F);
   my %cidmap = map {
     my $r = $cid2uni[$_];
-    $_ => (ref $r) ? [@$r] : [ $r, 0 ]
+    $_ => (ref $r) ? [@$r] : [ $r, ($hwucs{$r}) ? 3 : 0 ]
   } (0 .. $#cid2uni);
+  
   delete $cidmap{0};
-  my %upmap = map { $_ => [ $_, 0, 1 ] } (0 .. 0x2FFFF);
+  my %upmap = map { $_ => [ $_, 0, 0, 0 ] } (0 .. 0x2FFFF);
   foreach (0x2018, 0x2019, 0x201C, 0x201D) {
     $upmap{$_}[1] = 2; $upmap{$_}[2] = 0;
   }
-  # Ruby fonts are tricky in that they abuse raw TFMs for CID.
-  # ruby_swictch is turned off for each character such that:
-  # - the character is a kanji;
-  # - code value is out of CID range, i.e. over 23057 (=0x5A11);
-  #   (that makes the switch-off range of >= 0x4E00)
-  # - the CID glyph for that value has a fixed-width other than fullwidth.
-  foreach (0x3200 .. 0x4DBF) { $upmap{$_}[2] = 0; }
-  foreach (0x4E00 .. 0x2FFFF) { $upmap{$_}[2] = 0; }
-  foreach (0 .. 0x4DFF) {
-    if (width_aj1($_) >= 2) { $upmap{$_}[2] = 0; }
-  }
+  # Ruby_swictch is turned on for each non-kanji character.
+  foreach (0      .. 0x33FF)  { $upmap{$_}[2] = 1; }
+  foreach (0x4DC0 .. 0x4DFF)  { $upmap{$_}[2] = 1; }
+  foreach (0xA000 .. 0xF8FF)  { $upmap{$_}[2] = 1; }
+  foreach (0xFB00 .. 0x1FFFF) { $upmap{$_}[2] = 1; }
   my %jismap = map {
     my $uc = in_ucs($_, EJV_UPTEX);
     in_jis($_) => $upmap{$uc}
   } grep { defined_jis($_) } (0 .. MAX_INTCODE);
+  foreach (0x2421 .. 0x2473) { $jismap{$_}[3] = 1; }
+  foreach (0x2521 .. 0x2576) { $jismap{$_}[3] = 1; }
   %toucs = ( jis => \%jismap, cid => \%cidmap, up => \%upmap );
 }
 
@@ -158,8 +159,8 @@ sub process_shape_std {
   my ($vfn, $jtfm, $utfm, $utfmq) = @_; local ($_);
   info("process", $vfn);
   $_ = read_whole_file(kpse("$vfn.vf"), 1) or error();
-  $_ = convert_vf($_, $utfm ne $utfmq, 0,
-      [$jtfm], [], [], [$utfm, $utfm, $utfmq]);
+  $_ = convert_vf($_, $utfm ne $utfmq, 0, 0,
+      [$jtfm], [], [], [$utfm, $utfm, $utfmq, $utfm]);
   finish($vfn, $_);
 }
 
@@ -170,23 +171,25 @@ sub process_shape_otf {
   my $vfn = otf_font_name($vfn0, $shp, $dir);
   $_ = ruby_alternate_font($vfn0);
   my $avfn = (defined $_) ? otf_font_name($_, $shp, $dir) : undef;
+  my $jiso = is_jis_otf_font($vfn0);
   info("process", $vfn, $avfn);
   $_ = (defined $avfn) ? $avfn : $vfn;
   $_ = read_whole_file(kpse("$_.vf"), 1) or error();
-  my @x = (defined $up) ? ([$up], [$up, $up, "otf-ujXY-D"]) :
-    ([], ["otf-ujXY-D", "otf-ujXYn-D", "otf-ujXY-D"]);
-  (defined $avfn) and push(@{$x[1]}, "zur-rjXY-D");
-  $_ = convert_vf($_, $dir eq 'h', defined $avfn,
+  my @x = (defined $up) ? ([$up], [$up, $up, "otf-ujXY-D", $up]) :
+    ([], ["otf-ujXY-D", "otf-ujXYn-D", "otf-ujXY-D", "uphXXYY-D"]);
+  (defined $avfn) and $x[1][3] = "zur-rjXY-D";
+  $_ = convert_vf($_, $dir eq 'h', defined $avfn, $jiso,
       map { [ map { otf_font_name($_, $shp, $dir) } (@$_) ] } (
         ["hXXYY-D", "hXXYYn-D"], ["otf-cjXY-D"], @x));
   finish($vfn, $_);
   (defined $avfn) and finish_ruby($shp, $dir);
 }
 
-## convert_vf(<vf_name>, <is_horiz>, <is_ruby>, <jis_tfm_name_list>,
-#    <cid_tfm_name_list>, <main_tfm_name_list>, <uni_tfm_name_lsit>)
+## convert_vf(<vf_name>, <is_horiz>, <is_ruby>, <is_jisotf>,
+#    <jis_tfm_name_list>, <cid_tfm_name_list>, <main_tfm_name_list>,
+#    <uni_tfm_name_lsit>)
 sub convert_vf {
-  my ($vf, $horz, $ruby, $jisraw, $cidraw, $upraw, $uniraw) = @_;
+  my ($vf, $horz, $ruby, $jiso, $jisraw, $cidraw, $upraw, $uniraw) = @_;
   local $_ = vf_parse($vf) or error();
   my (@map) = grep { $_->[0] eq 'MAPFONT' } (@$_);
   my (@char) = grep { $_->[0] eq 'CHARACTER' } (@$_);
@@ -198,7 +201,7 @@ sub convert_vf {
   (defined $omfid) or error("no MAPFONT");
   info("MAPFONT count", scalar(@map) . " -> " . scalar(@$zmap));
   # CHARACTER
-  my ($zchar) = convert_character(\@char, $omfid, $mfadj, $horz, $ruby);
+  my ($zchar) = convert_character(\@char, $omfid, $mfadj, $horz, $ruby, $jiso);
   info("CHARACTER count", scalar(@char) . " -> " . scalar(@$zchar));
   #
   my $zvf = [ @other, @$zmap, @$zchar ];
@@ -240,9 +243,9 @@ sub convert_mapfont {
 }
 
 ## convert_character(<in_char_data>, <init_mapfont_id>,
-#   <mapfont_adjust_map>, <is_horiz>, <is_ruby>)
+#   <mapfont_adjust_map>, <is_horiz>, <is_ruby>, <is_jisotf>)
 sub convert_character {
-  my ($char, $omfid, $mfadj, $horz, $ruby) = @_; local ($_);
+  my ($char, $omfid, $mfadj, $horz, $ruby, $jiso) = @_; local ($_);
   my @zchar;
   L1:foreach (@$char) {
     my $z = pl_clone($_);
@@ -256,9 +259,9 @@ sub convert_character {
         #info("from", $fid, $cc);
         if (ref $nzfid) {
           my ($typ, @nzf) = @$nzfid;
-          my $r = $toucs{$typ}{$cc} or next L1; my $ru;
-          ($cc, $r, $ru) = @$r; ($r == 2 && !$horz) and $r = 0;
-          ($ruby && $ru) and $r = -1;
+          my $r = $toucs{$typ}{$cc} or next L1; my ($ru, $jk);
+          ($cc, $r, $ru, $jk) = @$r; ($r == 2 && !$horz) and $r = 0;
+          ($ruby && $ru || $jiso && $jk) and $r = 3;
           $nzfid = $nzf[$r];
         }
         #info("to", $nzfid, $cc);
