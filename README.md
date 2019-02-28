@@ -36,7 +36,7 @@ fonts are difficult to prepare.
 This package is distributed under the MIT License.
 
 
-The bxufont Package
+The pxufont Package
 -------------------
 
 ### Package Loading
@@ -55,8 +55,31 @@ For present, this package has no public commands. All the settings are
 done through the package option.
 
 
+The pxufont-ruby Package
+------------------------
+
+This package is an alternative to the pxufont package. The difference
+between the two is the way the “ruby notation fonts” of the japanese-otf
+package are handled; pxufont disables the ruby fonts and substitutes then
+with ordinary fonts, whereas pxufont-ruby supports also the ruby fonts.
+This feature however requires extra settings of font mapping.
+
+### Package Loading
+
+    \usepackage{pxufont-ruby}
+
+Note that pxufont and pxufont-ruby are mutually exclusive; when both
+packages are loaded, then the one loaded earlier will be effective.
+
+NB. Developers can test whether pxufont-ruby is effective by testing
+whether `\pxufontUseRubyFont` is defined.
+
+
 Revision History
 ----------------
+
+  * Version 0.5  〈2019/02/28〉
+      - Support for the fonts of ruby notation forms.
 
   * Version 0.4  〈2019/02/15〉
       - Support for the fonts of `min10` series.
