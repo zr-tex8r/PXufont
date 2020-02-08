@@ -156,14 +156,14 @@
 \ifpxuf@otf@used
   \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
     \@for\pxuf@x:={hmc,hgt,mg,ruby,rubyg,rubymg}\do{%
-      \@for\pxuf@y:={l,m,bx,eb}\do{%
+      \@for\pxuf@y:={l,m,b,bx,eb}\do{%
         \expandafter\ifx\csname\pxuf@w/\pxuf@x/\pxuf@y/n\endcsname\relax\else
           \expandafter\let\csname pxuf@DF/\pxuf@w/\pxuf@x\endcsname=t%
           \pxuf@process@one{t}\pxuf@w\pxuf@x\pxuf@y{n}%
         \fi}}}
   \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
     \@for\pxuf@x:={cidj,cidjg,cidjmg}\do{%
-      \@for\pxuf@y:={l,m,bx,eb}\do{%
+      \@for\pxuf@y:={l,m,b,bx,eb}\do{%
         \expandafter\ifx\csname\pxuf@w/\pxuf@x/\pxuf@y/0\endcsname\relax\else
           \@tfor\pxuf@z:=012345\do{%
             \pxuf@process@one{f}\pxuf@w\pxuf@x\pxuf@y\pxuf@z}%
