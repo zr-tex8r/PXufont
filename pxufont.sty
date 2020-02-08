@@ -1,7 +1,7 @@
 %%
 %% This is file 'pxufont.sty'.
-%% 
-%% Copyright (c) 2017-2019 Takayuki YATO (aka. "ZR")
+%%
+%% Copyright (c) 2017-2020 Takayuki YATO (aka. "ZR")
 %%   GitHub:   https://github.com/zr-tex8r
 %%   Twitter:  @zr_tex8r
 %%
@@ -10,7 +10,7 @@
 
 %% package declaration
 \NeedsTeXFormat{pLaTeX2e}
-\ProvidesPackage{pxufont}[2019/02/28 v0.5]
+\ProvidesPackage{pxufont}[2020/02/08 v0.5a-pre]
 \def\pxuf@pkgname{pxufont}
 %
 \providecommand\bxDebug[1]{}
@@ -45,7 +45,7 @@
 \def\pxuf@split@c#1\pxuf@mt#2\pxuf@end#3{%
   \def\pxuf@pre{#3}\def\pxuf@post{#1}}
 
-%% swutch 'pxuf@otf@used'
+%% switch 'pxuf@otf@used'
 \newif\ifpxuf@otf@used
 \@ifpackageloaded{otf}{%
   \pxuf@otf@usedtrue
@@ -58,7 +58,7 @@
 }
 
 %% \pxuf@JY/\pxuf@JT
-\ifNativeupTeX
+\ifnativeupTeX
 \def\pxuf@JY{JY2}\def\pxuf@JT{JT2}
 \else
 \def\pxuf@JY{JY1}\def\pxuf@JT{JT1}
@@ -169,7 +169,7 @@
             \pxuf@process@one{f}\pxuf@w\pxuf@x\pxuf@y\pxuf@z}%
         \fi}}}
 \fi
-\ifNativeupTeX\else
+\ifnativeupTeX\else
   \@for\pxuf@w:={\pxuf@JY,\pxuf@JT}\do{%
     \@for\pxuf@x:={\mcdefault,\gtdefault,mc,gt}\do{%
       \expandafter\ifx\csname pxuf@DF/\pxuf@w/\pxuf@x\endcsname\relax
