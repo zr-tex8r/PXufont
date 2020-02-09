@@ -78,6 +78,9 @@ whether `\pxufontUseRubyFont` is defined.
 Revision History
 ----------------
 
+  * Version 0.6  〈2020/02/09〉
+      - Suuport for `b` series.
+
   * Version 0.5  〈2019/02/28〉
       - Support for the fonts of ruby notation forms.
 
