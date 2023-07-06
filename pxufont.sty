@@ -165,7 +165,7 @@
     \@for\pxuf@x:={cidj,cidjg,cidjmg}\do{%
       \@for\pxuf@y:={l,m,b,bx,eb}\do{%
         \expandafter\ifx\csname\pxuf@w/\pxuf@x/\pxuf@y/0\endcsname\relax\else
-          \@tfor\pxuf@z:=012345\do{%
+          \@tfor\pxuf@z:=-012345\do{%
             \pxuf@process@one{f}\pxuf@w\pxuf@x\pxuf@y\pxuf@z}%
         \fi}}}
 \fi
