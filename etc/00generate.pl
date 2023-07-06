@@ -3,8 +3,8 @@ use ZRTeXtor ':all';
 use ZRJCode ':all';
 use Encode qw(encode decode);
 my $prog_name = 'generate';
-my $version = '0.5-pre';
-my $mod_date = '2019/02/17';
+my $version = '0.6';
+my $mod_date = '2023/07/07';
 use Data::Dumper;
 $Data::Dumper::Indent = 1;
 require "cid2uni.pl";
@@ -26,6 +26,7 @@ cidjXY2-D
 cidjXY3-D
 cidjXY4-D
 cidjXY5-D
+cidjXY--D
 nmlXXYY-D
 nmlXXYYn-D
 rubyXXYY-D
@@ -48,6 +49,13 @@ sub is_jis_otf_font {
   local ($_) = @_;
   return !!(m/nml/ && !m/^up/);
 }
+
+# NB. code space of source encoding, given for forcing
+sub codespace_type {
+  local ($_) = @_;
+  (m/^cidj.*--.$/) and return 'cidraw';
+  return '';
+}
 #
 #my @omitted = qw(
 #brsgexpXXYY-D
@@ -68,7 +76,7 @@ goth/g/b/b
 goth/g/eb/e
 mgoth/mg/r/r
 ); # XX/X/YY/Y
-#$#otf_shape=0;
+#@otf_shape=($otf_shape[1]);
 
 # direction symbols
 my @dir = qw( h v );
@@ -118,6 +126,12 @@ sub otf_font_name {
   return $_;
 }
 
+# forced codespace map
+# <codespace_type> -> <codespace>
+my %forced_codespace = (
+  cidraw => [1 .. $#cid2uni],
+);
+
 # code conversion map
 # <in_code> -> [<unicode>, <glyph_var>, <ruby_switch>, <jiskana_sw>]
 # glyph_var: 0=90JIS, 1=2004JIS, 2=quote
@@ -159,7 +173,7 @@ sub process_shape_std {
   my ($vfn, $jtfm, $utfm, $utfmq) = @_; local ($_);
   info("process", $vfn);
   $_ = read_whole_file(kpse("$vfn.vf"), 1) or error();
-  $_ = convert_vf($_, $utfm ne $utfmq, 0, 0,
+  $_ = convert_vf($_, $utfm ne $utfmq, 0, 0, '',
       [$jtfm], [], [], [$utfm, $utfm, $utfmq, $utfm]);
   finish($vfn, $_);
 }
@@ -172,24 +186,25 @@ sub process_shape_otf {
   $_ = ruby_alternate_font($vfn0);
   my $avfn = (defined $_) ? otf_font_name($_, $shp, $dir) : undef;
   my $jiso = is_jis_otf_font($vfn0);
+  my $cst = codespace_type($vfn0);
   info("process", $vfn, $avfn);
   $_ = (defined $avfn) ? $avfn : $vfn;
   $_ = read_whole_file(kpse("$_.vf"), 1) or error();
   my @x = (defined $up) ? ([$up], [$up, $up, "otf-ujXY-D", $up]) :
     ([], ["otf-ujXY-D", "otf-ujXYn-D", "otf-ujXY-D", "uphXXYY-D"]);
   (defined $avfn) and $x[1][3] = "zur-rjXY-D";
-  $_ = convert_vf($_, $dir eq 'h', defined $avfn, $jiso,
+  $_ = convert_vf($_, $dir eq 'h', defined $avfn, $jiso, $cst,
       map { [ map { otf_font_name($_, $shp, $dir) } (@$_) ] } (
         ["hXXYY-D", "hXXYYn-D"], ["otf-cjXY-D"], @x));
   finish($vfn, $_);
   (defined $avfn) and finish_ruby($shp, $dir);
 }
 
-## convert_vf(<vf_name>, <is_horiz>, <is_ruby>, <is_jisotf>,
+## convert_vf(<vf_name>, <is_horiz>, <is_ruby>, <is_jisotf>, <codespace_type>,
 #    <jis_tfm_name_list>, <cid_tfm_name_list>, <main_tfm_name_list>,
 #    <uni_tfm_name_lsit>)
 sub convert_vf {
-  my ($vf, $horz, $ruby, $jiso, $jisraw, $cidraw, $upraw, $uniraw) = @_;
+  my ($vf, $horz, $ruby, $jiso, $cst, $jisraw, $cidraw, $upraw, $uniraw) = @_;
   local $_ = vf_parse($vf) or error();
   my (@map) = grep { $_->[0] eq 'MAPFONT' } (@$_);
   my (@char) = grep { $_->[0] eq 'CHARACTER' } (@$_);
@@ -201,11 +216,34 @@ sub convert_vf {
   (defined $omfid) or error("no MAPFONT");
   info("MAPFONT count", scalar(@map) . " -> " . scalar(@$zmap));
   # CHARACTER
+  force_codespace(\@char, $cst);
   my ($zchar) = convert_character(\@char, $omfid, $mfadj, $horz, $ruby, $jiso);
   info("CHARACTER count", scalar(@char) . " -> " . scalar(@$zchar));
   #
   my $zvf = [ @other, @$zmap, @$zchar ];
   return vf_form($zvf);
+}
+
+## force_codespace(<in_char_data>, <codespace_type>)
+sub force_codespace {
+  my ($char, $cst) = @_;
+  my $cs = $forced_codespace{$cst};
+  (defined $cs) or return; # no complement
+  #
+  my $ocnt = scalar(@$char);
+  my %scc = map { $_ => 1 } (@$cs);
+  foreach (@$char) {
+    delete $scc{pl_value($_, 1)};
+  }
+  foreach my $cc (sort { $a <=> $b } (keys %scc)) {
+    my $h = sprintf("%X", $cc);
+    push(@$char, ['CHARACTER', 'H', $h,
+      ['CHARWD', 'R', 1.0],
+      ['MAP', ['SETCHAR', 'H', $h]]
+    ]);
+  }
+  #
+  info("force codespace", $cst, $ocnt . " -> " . scalar(@$char));
 }
 
 ## convert_mapfont(<map_data>, <mapfont_type_map>, <uni_tfm_name_list>)
