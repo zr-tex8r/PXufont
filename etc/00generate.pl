@@ -3,11 +3,11 @@ use ZRTeXtor ':all';
 use ZRJCode ':all';
 use Encode qw(encode decode);
 my $prog_name = 'generate';
-my $version = '0.6';
+my $version = '0.7';
 my $mod_date = '2023/07/07';
 use Data::Dumper;
 $Data::Dumper::Indent = 1;
-require "cid2uni.pl";
+require "./cid2uni.pl";
 our (@cid2uni);
 
 # the prefix to be attached to new VFs

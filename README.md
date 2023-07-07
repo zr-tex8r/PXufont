@@ -78,6 +78,9 @@ whether `\pxufontUseRubyFont` is defined.
 Revision History
 ----------------
 
+  * Version 0.7  〈2023/07/07〉
+      - Suuport for the current japanese-otf package.
+
   * Version 0.6  〈2020/02/09〉
       - Suuport for `b` series.
 
